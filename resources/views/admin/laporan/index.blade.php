@@ -4,13 +4,13 @@
 @section('page_title', 'Laporan Rekapitulasi HIPPAM Tirto Makmur')
 
 @section('content')
-<div class="space-y-6">
+<div class="space-y-4 sm:space-y-6">
 
     <!-- Header Controls & Export -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-200 shadow-md">
         <div>
-            <h3 class="text-base font-bold text-slate-800">Laporan Rekapitulasi & Audit Keuangan</h3>
-            <p class="text-xs text-slate-500 mt-0.5">Format laporan rekapitulasi operasional dan keuangan HIPPAM Tirto Makmur</p>
+            <h3 class="text-base font-black text-slate-900">Laporan Rekapitulasi &amp; Audit Keuangan</h3>
+            <p class="text-xs text-slate-500 mt-0.5 font-medium">Format laporan rekapitulasi operasional dan keuangan HIPPAM Tirto Makmur</p>
         </div>
 
         <div class="flex flex-wrap items-center gap-2">
@@ -18,7 +18,7 @@
             <form method="GET" action="{{ route('admin.laporan.index') }}" class="flex items-center gap-1.5">
                 <input type="hidden" name="tab" value="{{ $tab }}">
                 <select name="periode_id" onchange="this.form.submit()"
-                        class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                        class="px-3 py-2 bg-slate-50 border-2 border-slate-300 rounded-xl text-xs font-bold text-slate-700 focus:ring-2 focus:ring-sky-500 focus:outline-none">
                     @foreach($allPeriodes as $p)
                         <option value="{{ $p->id }}" {{ $selectedPeriode?->id == $p->id ? 'selected' : '' }}>
                             {{ $p->nama_periode }}
@@ -29,38 +29,40 @@
 
             <!-- Export Buttons -->
             <a href="{{ route('admin.laporan.export', ['periode_id' => $selectedPeriode?->id]) }}" 
-               class="px-4 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl shadow transition flex items-center gap-1.5">
+               class="px-4 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl shadow-md transition flex items-center gap-1.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                <span>Export Excel / CSV</span>
+                <span>Export Excel</span>
             </a>
 
             <button onclick="window.print()" 
-                    class="px-3.5 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition flex items-center gap-1.5">
+                    class="px-3.5 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border-2 border-slate-300 transition flex items-center gap-1.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                <span>Cetak Laporan</span>
+                <span>Cetak</span>
             </button>
         </div>
     </div>
 
-    <!-- Navigation Tabs -->
-    <div class="flex border-b border-slate-200 gap-2 bg-white px-4 rounded-xl shadow-sm">
-        <a href="{{ route('admin.laporan.index', ['tab' => 'rekap-rt', 'periode_id' => $selectedPeriode?->id]) }}" 
-           class="py-3 px-4 text-xs font-bold border-b-2 transition flex items-center gap-2 {{ $tab === 'rekap-rt' ? 'border-sky-600 text-sky-600' : 'border-transparent text-slate-500 hover:text-slate-700' }}">
-            <span>📊 Rekap per RT (Hal 7)</span>
-        </a>
-        <a href="{{ route('admin.laporan.index', ['tab' => 'rekap-warga', 'periode_id' => $selectedPeriode?->id]) }}" 
-           class="py-3 px-4 text-xs font-bold border-b-2 transition flex items-center gap-2 {{ $tab === 'rekap-warga' ? 'border-sky-600 text-sky-600' : 'border-transparent text-slate-500 hover:text-slate-700' }}">
-            <span>📋 Rekap Multi-Bulan Warga (Hal 8–11)</span>
-        </a>
-        <a href="{{ route('admin.laporan.index', ['tab' => 'keuangan', 'periode_id' => $selectedPeriode?->id]) }}" 
-           class="py-3 px-4 text-xs font-bold border-b-2 transition flex items-center gap-2 {{ $tab === 'keuangan' ? 'border-sky-600 text-sky-600' : 'border-transparent text-slate-500 hover:text-slate-700' }}">
-            <span>💰 Laporan Keuangan HIPPAM</span>
-        </a>
+    <!-- Navigation Tabs (horizontally scrollable on mobile) -->
+    <div class="bg-white rounded-xl shadow-sm border-2 border-slate-200 overflow-hidden">
+        <div class="flex border-b border-slate-200 overflow-x-auto no-scrollbar">
+            <a href="{{ route('admin.laporan.index', ['tab' => 'rekap-rt', 'periode_id' => $selectedPeriode?->id]) }}" 
+               class="py-3 px-4 text-xs font-bold border-b-2 transition flex items-center gap-2 whitespace-nowrap shrink-0 {{ $tab === 'rekap-rt' ? 'border-sky-600 text-sky-600 bg-sky-50' : 'border-transparent text-slate-500 hover:text-slate-700 hover:bg-slate-50' }}">
+                <span>📊 Rekap per RT</span>
+            </a>
+            <a href="{{ route('admin.laporan.index', ['tab' => 'rekap-warga', 'periode_id' => $selectedPeriode?->id]) }}" 
+               class="py-3 px-4 text-xs font-bold border-b-2 transition flex items-center gap-2 whitespace-nowrap shrink-0 {{ $tab === 'rekap-warga' ? 'border-sky-600 text-sky-600 bg-sky-50' : 'border-transparent text-slate-500 hover:text-slate-700 hover:bg-slate-50' }}">
+                <span>📋 Rekap Multi-Bulan</span>
+            </a>
+            <a href="{{ route('admin.laporan.index', ['tab' => 'keuangan', 'periode_id' => $selectedPeriode?->id]) }}" 
+               class="py-3 px-4 text-xs font-bold border-b-2 transition flex items-center gap-2 whitespace-nowrap shrink-0 {{ $tab === 'keuangan' ? 'border-sky-600 text-sky-600 bg-sky-50' : 'border-transparent text-slate-500 hover:text-slate-700 hover:bg-slate-50' }}">
+                <span>💰 Laporan Keuangan</span>
+            </a>
+        </div>
     </div>
 
     <!-- TAB 1: Rekap per RT (Hal 7) -->
     @if($tab === 'rekap-rt')
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+        <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md overflow-hidden space-y-4 p-4 sm:p-5">
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
                 <h4 class="text-sm font-bold text-slate-900">Rekapitulasi Tagihan per Wilayah RT — Periode {{ $selectedPeriode?->nama_periode }}</h4>
                 <span class="text-xs text-slate-400 font-mono">Format Sheet Hal7</span>

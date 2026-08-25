@@ -78,9 +78,11 @@ class UserController extends Controller
 
         if ($user->isPetugas()) {
             $user->rts()->sync($validated['rt_ids'] ?? []);
+        } else {
+            $user->rts()->detach();
         }
 
-        ActivityLog::log('UPDATE_USER', "Memperbarui profil pengguna {$user->name}");
+        ActivityLog::log('UPDATE_USER', "Memperbarui profil pengguna {$user->name} (Role: {$user->role}, Status: {$user->status})");
 
         return redirect()->route('admin.users.index')->with('success', "Data pengguna {$user->name} berhasil diperbarui.");
     }

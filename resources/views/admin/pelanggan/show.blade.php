@@ -4,34 +4,37 @@
 @section('page_title', 'Profil & Riwayat Warga Pelanggan')
 
 @section('content')
-<div class="space-y-6">
+<div class="space-y-4 sm:space-y-6">
 
     <!-- Top Card / Profile Header -->
-    <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-600 via-cyan-500 to-teal-400 text-white font-black text-2xl flex items-center justify-center shadow-lg">
-                {{ strtoupper(substr($pelanggan->nama, 0, 1)) }}
-            </div>
-            <div>
-                <div class="flex items-center gap-2">
-                    <h3 class="text-xl font-black text-slate-900">{{ $pelanggan->nama }}</h3>
-                    <span class="px-2.5 py-0.5 rounded-lg text-xs font-mono font-black bg-sky-100 text-sky-800 border border-sky-300">
-                        {{ $pelanggan->no_rekening }}
-                    </span>
-                    <span class="px-2.5 py-0.5 rounded-full text-xs font-black {{ $pelanggan->status === 'aktif' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-600 border border-slate-300' }}">
-                        {{ strtoupper($pelanggan->status) }}
-                    </span>
+    <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-4 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-3 sm:gap-4">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-600 via-cyan-500 to-teal-400 text-white font-black text-xl sm:text-2xl flex items-center justify-center shadow-lg shrink-0">
+                    {{ strtoupper(substr($pelanggan->nama, 0, 1)) }}
                 </div>
-                <p class="text-xs text-slate-500 font-medium mt-1">
-                    {{ $pelanggan->alamat }} &bull; RT Pembina: <strong>{{ $pelanggan->rt->nama_rt }}</strong> &bull; HP: {{ $pelanggan->no_hp ?? '-' }}
-                </p>
+                <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                        <h3 class="text-base sm:text-xl font-black text-slate-900">{{ $pelanggan->nama }}</h3>
+                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-mono font-black bg-sky-100 text-sky-800 border border-sky-300">
+                            {{ $pelanggan->no_rekening }}
+                        </span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-black {{ $pelanggan->status === 'aktif' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-600 border border-slate-300' }}">
+                            {{ strtoupper($pelanggan->status) }}
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+                        {{ $pelanggan->alamat }} &bull; RT: <strong>{{ $pelanggan->rt->nama_rt }}</strong>
+                        @if($pelanggan->no_hp) &bull; <span class="font-mono">{{ $pelanggan->no_hp }}</span>@endif
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div class="flex items-center gap-2">
-            <a href="{{ route('admin.pelanggan.index') }}" class="px-4 py-2.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition border border-slate-300">
-                &larr; Kembali ke Daftar
-            </a>
+            <div class="flex items-center gap-2 sm:shrink-0">
+                <a href="{{ route('admin.pelanggan.index') }}" class="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition border border-slate-300">
+                    &larr; <span>Kembali</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -58,7 +61,7 @@
     </div>
 
     <!-- History Timeline Table -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md overflow-hidden">
         <div class="p-5 border-b border-slate-100">
             <h4 class="text-sm font-bold text-slate-800">Histori Catatan Meter & Pembayaran</h4>
             <p class="text-xs text-slate-400">Rincian angka meter dari bulan ke bulan dan status pembayaran</p>

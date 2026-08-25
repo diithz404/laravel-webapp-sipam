@@ -8,7 +8,6 @@ use App\Models\Rt;
 use App\Models\Pelanggan;
 use App\Models\PeriodeTagihan;
 use App\Models\CatatanMeter;
-use App\Models\Pembayaran;
 
 class LaporanController extends Controller
 {
@@ -23,53 +22,82 @@ class LaporanController extends Controller
         $allPeriodes = PeriodeTagihan::orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->get();
         $allRts = Rt::orderBy('kode_rt')->get();
 
-        // 1. Data Rekap per RT (Hal 7)
-        $rekapPerRt = $allRts->map(function ($rt) use ($selectedPeriode) {
-            $catatan = CatatanMeter::whereHas('pelanggan', function ($q) use ($rt) {
-                $q->where('rt_id', $rt->id);
-            })->where('periode_id', $selectedPeriode?->id)->get();
+        // 1. Data Rekap per RT (Hal 7) - Single grouped query eliminating N+1
+        $rtAggregates = CatatanMeter::join('pelanggans', 'catatan_meters.pelanggan_id', '=', 'pelanggans.id')
+            ->where('catatan_meters.periode_id', $selectedPeriode?->id)
+            ->groupBy('pelanggans.rt_id')
+            ->selectRaw('
+                pelanggans.rt_id,
+                COUNT(CASE WHEN catatan_meters.angka_ini IS NOT NULL THEN 1 END) as tercatat,
+                COALESCE(SUM(catatan_meters.pemakaian), 0) as total_m3,
+                COALESCE(SUM(catatan_meters.biaya_pemakaian), 0) as biaya_pemakaian,
+                COALESCE(SUM(catatan_meters.biaya_admin), 0) as biaya_admin,
+                COALESCE(SUM(catatan_meters.tunggakan_lalu), 0) as tunggakan_lalu,
+                COALESCE(SUM(catatan_meters.total_tagihan), 0) as total_tagihan,
+                COALESCE(SUM(catatan_meters.total_dibayar), 0) as total_dibayar,
+                COALESCE(SUM(catatan_meters.sisa_tagihan), 0) as sisa_tagihan
+            ')
+            ->get()
+            ->keyBy('rt_id');
 
-            $totalWarga = $rt->pelanggans()->count();
-            $tercatat = $catatan->whereNotNull('angka_ini')->count();
-            $m3 = $catatan->sum('pemakaian');
-            $biayaPemakaian = $catatan->sum('biaya_pemakaian');
-            $biayaAdmin = $catatan->sum('biaya_admin');
-            $tunggakanLalu = $catatan->sum('tunggakan_lalu');
-            $totalTagihan = $catatan->sum('total_tagihan');
-            $totalDibayar = $catatan->sum('total_dibayar');
-            $sisaTagihan = $catatan->sum('sisa_tagihan');
+        $rtsWithCounts = Rt::withCount(['pelanggans' => function ($q) {
+                $q->where('status', 'aktif');
+            }])
+            ->orderBy('kode_rt')
+            ->get();
+
+        $rekapPerRt = $rtsWithCounts->map(function ($rt) use ($rtAggregates) {
+            $agg = $rtAggregates->get($rt->id);
+
+            $totalWarga = $rt->pelanggans_count;
+            $tercatat = (int) ($agg?->tercatat ?? 0);
+            $totalM3 = (int) ($agg?->total_m3 ?? 0);
+            $biayaPemakaian = (float) ($agg?->biaya_pemakaian ?? 0);
+            $biayaAdmin = (float) ($agg?->biaya_admin ?? 0);
+            $tunggakanLalu = (float) ($agg?->tunggakan_lalu ?? 0);
+            $totalTagihan = (float) ($agg?->total_tagihan ?? 0);
+            $totalDibayar = (float) ($agg?->total_dibayar ?? 0);
+            $sisaTagihan = (float) ($agg?->sisa_tagihan ?? 0);
+            $persenLunas = $totalTagihan > 0 ? round(($totalDibayar / $totalTagihan) * 100, 1) : 0;
 
             return (object) [
                 'rt' => $rt,
                 'total_warga' => $totalWarga,
                 'tercatat' => $tercatat,
-                'total_m3' => $m3,
+                'total_m3' => $totalM3,
                 'biaya_pemakaian' => $biayaPemakaian,
                 'biaya_admin' => $biayaAdmin,
                 'tunggakan_lalu' => $tunggakanLalu,
                 'total_tagihan' => $totalTagihan,
                 'total_dibayar' => $totalDibayar,
                 'sisa_tagihan' => $sisaTagihan,
-                'persen_lunas' => $totalTagihan > 0 ? round(($totalDibayar / $totalTagihan) * 100, 1) : 0,
+                'persen_lunas' => $persenLunas,
             ];
         });
 
         // 2. Data Rekap Multi-Bulan per Pelanggan (Hal 8-11)
-        $recentPeriodes = PeriodeTagihan::orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->take(4)->get()->reverse();
+        // Fetches last 4 periods and batch loads all records in 1 query (Eliminating 800+ queries)
+        $recentPeriodes = PeriodeTagihan::orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->take(4)->get()->reverse()->values();
 
-        $queryWarga = Pelanggan::with(['rt'])->orderBy('rt_id')->orderBy('urutan_rumah');
+        $queryWarga = Pelanggan::with(['rt'])->where('status', 'aktif')->orderBy('rt_id')->orderBy('urutan_rumah');
         if ($rtId) {
             $queryWarga->where('rt_id', $rtId);
         }
         $wargas = $queryWarga->get();
 
-        $wargaMatrix = $wargas->map(function ($warga) use ($recentPeriodes) {
+        $wargaIds = $wargas->pluck('id');
+        $periodeIds = $recentPeriodes->pluck('id');
+
+        $allCatatanMatrix = CatatanMeter::whereIn('periode_id', $periodeIds)
+            ->whereIn('pelanggan_id', $wargaIds)
+            ->get()
+            ->groupBy('pelanggan_id');
+
+        $wargaMatrix = $wargas->map(function ($warga) use ($recentPeriodes, $allCatatanMatrix) {
+            $wargaCatatans = $allCatatanMatrix->get($warga->id, collect())->keyBy('periode_id');
             $matrixPerBulan = [];
             foreach ($recentPeriodes as $p) {
-                $catatan = CatatanMeter::where('pelanggan_id', $warga->id)
-                    ->where('periode_id', $p->id)
-                    ->first();
-                $matrixPerBulan[$p->id] = $catatan;
+                $matrixPerBulan[$p->id] = $wargaCatatans->get($p->id);
             }
 
             return (object) [
@@ -78,17 +106,27 @@ class LaporanController extends Controller
             ];
         });
 
-        // 3. Data Laporan Keuangan HIPPAM
-        $allCatatanSelected = CatatanMeter::where('periode_id', $selectedPeriode?->id)->get();
+        // 3. Data Laporan Keuangan HIPPAM (Single aggregated query)
+        $keuanganStats = CatatanMeter::where('periode_id', $selectedPeriode?->id)
+            ->selectRaw('
+                COALESCE(SUM(total_tagihan), 0) as total_potensi,
+                COALESCE(SUM(total_dibayar), 0) as total_realisasi,
+                COALESCE(SUM(sisa_tagihan), 0) as total_piutang,
+                COALESCE(SUM(biaya_admin), 0) as total_admin,
+                COALESCE(SUM(biaya_pemakaian), 0) as total_air
+            ')
+            ->first();
+
+        $potensi = (float) ($keuanganStats?->total_potensi ?? 0);
+        $realisasi = (float) ($keuanganStats?->total_realisasi ?? 0);
+
         $keuangan = (object) [
-            'total_potensi' => $allCatatanSelected->sum('total_tagihan'),
-            'total_realisasi' => $allCatatanSelected->sum('total_dibayar'),
-            'total_piutang' => $allCatatanSelected->sum('sisa_tagihan'),
-            'total_admin' => $allCatatanSelected->sum('biaya_admin'),
-            'total_air' => $allCatatanSelected->sum('biaya_pemakaian'),
-            'efisiensi' => $allCatatanSelected->sum('total_tagihan') > 0 
-                ? round(($allCatatanSelected->sum('total_dibayar') / $allCatatanSelected->sum('total_tagihan')) * 100, 1) 
-                : 0,
+            'total_potensi' => $potensi,
+            'total_realisasi' => $realisasi,
+            'total_piutang' => (float) ($keuanganStats?->total_piutang ?? 0),
+            'total_admin' => (float) ($keuanganStats?->total_admin ?? 0),
+            'total_air' => (float) ($keuanganStats?->total_air ?? 0),
+            'efisiensi' => $potensi > 0 ? round(($realisasi / $potensi) * 100, 1) : 0,
         ];
 
         return view('admin.laporan.index', compact(

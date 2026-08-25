@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $userRts = $user->rts()->orderBy('kode_rt')->get();
 
         // If user has no assigned RTs, fallback to all RTs
-        if ($userRts->isEmpty()) {
+        if ($userRts->isEmpty() || $user->isAdmin()) {
             $userRts = Rt::orderBy('kode_rt')->get();
         }
 
@@ -27,7 +27,7 @@ class DashboardController extends Controller
         $selectedRt = $userRts->firstWhere('id', $selectedRtId) ?? $userRts->first();
 
         // Data for selected RT & active period
-        $pelanggans = Pelanggan::where('rt_id', $selectedRt?->id)->where('status', 'aktif')->get();
+        $pelanggans = Pelanggan::where('rt_id', $selectedRt?->id)->where('status', 'aktif')->orderBy('urutan_rumah')->get();
         $totalPelanggan = $pelanggans->count();
 
         $catatans = CatatanMeter::whereIn('pelanggan_id', $pelanggans->pluck('id'))
@@ -37,19 +37,20 @@ class DashboardController extends Controller
         $totalTercatat = $catatans->whereNotNull('angka_ini')->count();
         $progressPersen = $totalPelanggan > 0 ? round(($totalTercatat / $totalPelanggan) * 100) : 0;
 
-        $totalTagihan = $catatans->sum('total_tagihan');
-        $totalTerbayar = $catatans->sum('total_dibayar');
-        $totalTunggakan = $catatans->sum('sisa_tagihan');
-        $totalPemakaianM3 = $catatans->sum('pemakaian');
+        $totalTagihan = (float) $catatans->sum('total_tagihan');
+        $totalTerbayar = (float) $catatans->sum('total_dibayar');
+        $totalTunggakan = (float) $catatans->sum('sisa_tagihan');
+        $totalPemakaianM3 = (int) $catatans->sum('pemakaian');
 
-        // Recent payments recorded in this RT
+        // Recent payments recorded in this RT with eager loading
         $recentPayments = Pembayaran::whereHas('catatanMeter.pelanggan', function ($q) use ($selectedRt) {
             $q->where('rt_id', $selectedRt?->id);
-        })->with(['catatanMeter.pelanggan'])->latest('tanggal_bayar')->take(5)->get();
+        })->with(['catatanMeter.pelanggan.rt'])->latest('tanggal_bayar')->latest('id')->take(5)->get();
 
         // Pending input list (warga yang belum dicatat)
-        $unrecordedWargas = $pelanggans->filter(function ($warga) use ($catatans) {
-            $c = $catatans->firstWhere('pelanggan_id', $warga->id);
+        $catatansByPelanggan = $catatans->keyBy('pelanggan_id');
+        $unrecordedWargas = $pelanggans->filter(function ($warga) use ($catatansByPelanggan) {
+            $c = $catatansByPelanggan->get($warga->id);
             return !$c || $c->angka_ini === null;
         })->take(5);
 

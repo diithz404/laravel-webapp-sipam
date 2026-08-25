@@ -103,6 +103,27 @@ class PembayaranController extends Controller
 
         ActivityLog::log('CATAT_BAYAR', "Mencatat pembayaran {$catatan->pelanggan->nama} sebesar Rp" . number_format($validated['jumlah_bayar'], 0, ',', '.') . " (Status: " . ucfirst($catatan->status_bayar) . ")");
 
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => "Pembayaran {$catatan->pelanggan->nama} sebesar Rp" . number_format($validated['jumlah_bayar'], 0, ',', '.') . " berhasil dicatat.",
+                'catatan' => [
+                    'id' => $catatan->id,
+                    'total_dibayar' => $catatan->total_dibayar,
+                    'sisa_tagihan' => $catatan->sisa_tagihan,
+                    'status_bayar' => $catatan->status_bayar,
+                ],
+                'pembayaran' => [
+                    'id' => $pembayaran->id,
+                    'no_transaksi' => $pembayaran->no_transaksi,
+                    'jumlah_bayar' => $pembayaran->jumlah_bayar,
+                    'metode' => $pembayaran->metode,
+                    'tanggal_bayar' => $pembayaran->tanggal_bayar->format('d/m/Y'),
+                ],
+                'kwitansi_url' => route('kwitansi.show', $catatan->id),
+            ]);
+        }
+
         if ($request->has('cetak')) {
             return redirect()->route('kwitansi.show', $catatan->id)->with('success', 'Pembayaran berhasil disimpan!');
         }

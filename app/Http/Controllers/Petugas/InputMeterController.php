@@ -38,22 +38,36 @@ class InputMeterController extends Controller
             ->orderBy('urutan_rumah')
             ->get();
 
-        // Get or initialize CatatanMeter records for active period
-        $catatanRecords = [];
-        foreach ($pelanggans as $pelanggan) {
-            $record = CatatanMeter::where('pelanggan_id', $pelanggan->id)
-                ->where('periode_id', $activePeriode?->id)
-                ->first();
+        $pelangganIds = $pelanggans->pluck('id');
 
-            if (!$record) {
-                // Cari angka akhir bulan lalu
+        // Batch load existing CatatanMeter records (Eliminating N+1 queries)
+        $existingRecords = CatatanMeter::where('periode_id', $activePeriode?->id)
+            ->whereIn('pelanggan_id', $pelangganIds)
+            ->get()
+            ->keyBy('pelanggan_id');
+
+        $catatanRecords = [];
+        $missingPelanggans = [];
+
+        foreach ($pelanggans as $pelanggan) {
+            if ($existingRecords->has($pelanggan->id)) {
+                $catatanRecords[$pelanggan->id] = $existingRecords->get($pelanggan->id);
+            } else {
+                $missingPelanggans[] = $pelanggan;
+            }
+        }
+
+        // Initialize missing records if any
+        if (!empty($missingPelanggans) && $activePeriode) {
+            foreach ($missingPelanggans as $pelanggan) {
                 $catatanLalu = CatatanMeter::where('pelanggan_id', $pelanggan->id)
-                    ->where('periode_id', '!=', $activePeriode?->id)
+                    ->where('periode_id', '!=', $activePeriode->id)
                     ->latest('id')
                     ->first();
 
                 $angkaLalu = $catatanLalu ? ($catatanLalu->angka_ini ?? $catatanLalu->angka_lalu) : $pelanggan->angka_meter_awal;
-                $tunggakanLalu = $catatanLalu ? $catatanLalu->sisa_tagihan : 0;
+                $tunggakanLalu = $catatanLalu ? (float) $catatanLalu->sisa_tagihan : 0;
+                $biayaAdmin = (float) $activeTarif->biaya_admin;
 
                 $record = CatatanMeter::create([
                     'pelanggan_id' => $pelanggan->id,
@@ -61,16 +75,16 @@ class InputMeterController extends Controller
                     'angka_lalu' => $angkaLalu,
                     'angka_ini' => null,
                     'pemakaian' => 0,
-                    'biaya_admin' => $activeTarif->biaya_admin,
+                    'biaya_admin' => $biayaAdmin,
                     'tunggakan_lalu' => $tunggakanLalu,
-                    'total_tagihan' => $tunggakanLalu + $activeTarif->biaya_admin,
-                    'sisa_tagihan' => $tunggakanLalu + $activeTarif->biaya_admin,
+                    'total_tagihan' => $tunggakanLalu + $biayaAdmin,
+                    'sisa_tagihan' => $tunggakanLalu + $biayaAdmin,
                     'status_meter' => 'draft',
                     'status_bayar' => 'belum_bayar',
                 ]);
-            }
 
-            $catatanRecords[$pelanggan->id] = $record;
+                $catatanRecords[$pelanggan->id] = $record;
+            }
         }
 
         $allFilled = collect($catatanRecords)->every(fn($c) => $c->angka_ini !== null);
@@ -95,9 +109,15 @@ class InputMeterController extends Controller
             'angka_ini' => 'required|integer|min:0',
         ]);
 
-        $catatan = CatatanMeter::findOrFail($validated['catatan_id']);
+        $catatan = CatatanMeter::with('pelanggan')->findOrFail($validated['catatan_id']);
         
         if ($validated['angka_ini'] < $catatan->angka_lalu) {
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => "Angka meter baru ({$validated['angka_ini']}) tidak boleh lebih kecil dari meter bulan lalu ({$catatan->angka_lalu})."
+                ], 422);
+            }
             return back()->with('error', "Angka meter baru ({$validated['angka_ini']}) tidak boleh lebih kecil dari meter bulan lalu ({$catatan->angka_lalu}).");
         }
 
@@ -109,6 +129,38 @@ class InputMeterController extends Controller
         $catatan->save();
 
         ActivityLog::log('INPUT_METER', "Pencatatan meter {$catatan->pelanggan->nama}: Lalu {$catatan->angka_lalu} -> Kini {$catatan->angka_ini} (Pemakaian: {$catatan->pemakaian} m3, Tagihan: Rp" . number_format($catatan->total_tagihan, 0, ',', '.') . ")");
+
+        if ($request->expectsJson() || $request->ajax()) {
+            $rtId = $catatan->pelanggan->rt_id;
+            $rtCatatans = CatatanMeter::where('periode_id', $catatan->periode_id)
+                ->whereHas('pelanggan', fn($q) => $q->where('rt_id', $rtId))
+                ->get();
+            $totalCount = $rtCatatans->count();
+            $tercatatCount = $rtCatatans->whereNotNull('angka_ini')->count();
+
+            return response()->json([
+                'success' => true,
+                'message' => "Meter warga {$catatan->pelanggan->nama} berhasil disimpan!",
+                'catatan' => [
+                    'id' => $catatan->id,
+                    'angka_ini' => $catatan->angka_ini,
+                    'pemakaian' => $catatan->pemakaian,
+                    'biaya_pemakaian' => $catatan->biaya_pemakaian,
+                    'biaya_admin' => $catatan->biaya_admin,
+                    'tunggakan_lalu' => $catatan->tunggakan_lalu,
+                    'total_tagihan' => $catatan->total_tagihan,
+                    'sisa_tagihan' => $catatan->sisa_tagihan,
+                    'status_meter' => $catatan->status_meter,
+                    'status_bayar' => $catatan->status_bayar,
+                ],
+                'progress' => [
+                    'total' => $totalCount,
+                    'tercatat' => $tercatatCount,
+                    'pct' => $totalCount > 0 ? round(($tercatatCount / $totalCount) * 100) : 0,
+                    'all_filled' => $tercatatCount >= $totalCount && $totalCount > 0,
+                ],
+            ]);
+        }
 
         return back()->with('success', "Meter warga {$catatan->pelanggan->nama} berhasil disimpan (Tagihan: Rp" . number_format($catatan->total_tagihan, 0, ',', '.') . ").");
     }

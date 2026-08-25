@@ -47,20 +47,6 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    public function quickLogin(Request $request, User $user)
-    {
-        Auth::login($user);
-        $request->session()->regenerate();
-
-        ActivityLog::log('QUICK_LOGIN', "Beralih akun ke {$user->name} ({$user->role})");
-
-        if ($user->isAdmin()) {
-            return redirect()->route('admin.dashboard')->with('success', "Beralih ke Super Admin: {$user->name}");
-        }
-
-        return redirect()->route('petugas.dashboard')->with('success', "Beralih ke Petugas RT: {$user->name}");
-    }
-
     public function logout(Request $request)
     {
         if (Auth::check()) {

@@ -4,10 +4,10 @@
 @section('page_title', 'Master Data RW & Warga Pelanggan')
 
 @section('content')
-<div class="space-y-6" x-data="{ createModal: false, editModal: false, editPelanggan: {} }">
+<div class="space-y-4 sm:space-y-6" x-data="{ createModal: false, editModal: false, editPelanggan: {} }">
 
     <!-- Header Actions & Filters -->
-    <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-5 sm:p-6 space-y-4">
+    <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-4 sm:p-6 space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
                 <h3 class="text-base sm:text-lg font-black text-slate-900">Daftar RW &amp; Warga Pelanggan Air</h3>
@@ -15,19 +15,19 @@
             </div>
 
             <button @click="createModal = true" 
-                    class="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-black text-white bg-sky-600 hover:bg-sky-500 rounded-xl shadow-md transition">
+                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-black text-white bg-sky-600 hover:bg-sky-500 rounded-xl shadow-md transition shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                 <span>Daftarkan Warga Baru</span>
             </button>
         </div>
 
         <!-- Filter Bar -->
-        <form method="GET" action="{{ route('admin.pelanggan.index') }}" class="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-3 border-t-2 border-slate-100">
+        <form method="GET" action="{{ route('admin.pelanggan.index') }}" class="grid grid-cols-1 sm:grid-cols-4 gap-2.5 pt-3 border-t-2 border-slate-100">
             <div class="sm:col-span-2 relative">
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <input type="text" name="search" value="{{ $search }}" placeholder="Cari nama warga, no. pelanggan, alamat RW..."
+                <input type="text" name="search" value="{{ $search }}" placeholder="Cari nama warga, no. pelanggan, alamat..."
                        class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
             </div>
 
@@ -49,7 +49,7 @@
                     <option value="nonaktif" {{ $status === 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                 </select>
                 @if($search || $rtId || $status)
-                    <a href="{{ route('admin.pelanggan.index') }}" class="p-2.5 text-slate-600 hover:text-slate-900 bg-slate-200 rounded-xl border border-slate-300 flex items-center justify-center" title="Reset Filter">
+                    <a href="{{ route('admin.pelanggan.index') }}" class="p-2.5 text-slate-600 hover:text-slate-900 bg-slate-200 rounded-xl border border-slate-300 flex items-center justify-center shrink-0" title="Reset Filter">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </a>
                 @endif
@@ -59,7 +59,7 @@
 
     <!-- Customers Table -->
     <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md overflow-hidden">
-        <div class="overflow-x-auto p-3">
+        <div class="overflow-x-auto p-2 sm:p-3">
             <table class="w-full text-xs text-left text-slate-700">
                 <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[10px] tracking-wider">
                     <tr>
@@ -75,28 +75,28 @@
                 <tbody class="divide-y divide-slate-200">
                     @forelse($pelanggans as $p)
                         <tr class="hover:bg-slate-50 transition">
-                            <td class="p-3.5 font-mono font-black text-sky-700">
+                            <td class="p-3.5 font-mono font-black text-sky-700 whitespace-nowrap">
                                 <a href="{{ route('admin.pelanggan.show', $p->id) }}" class="hover:underline">
                                     {{ $p->no_rekening }}
                                 </a>
                             </td>
                             <td class="p-3.5 font-black text-slate-900">
-                                <a href="{{ route('admin.pelanggan.show', $p->id) }}" class="hover:text-sky-600">
+                                <a href="{{ route('admin.pelanggan.show', $p->id) }}" class="hover:text-sky-600 block">
                                     {{ $p->nama }}
                                 </a>
                                 @if($p->no_hp)
-                                    <p class="text-[10px] text-slate-400 font-normal mt-0.5">{{ $p->no_hp }}</p>
+                                    <p class="text-[10px] text-slate-400 font-normal mt-0.5 font-mono">{{ $p->no_hp }}</p>
                                 @endif
                             </td>
-                            <td class="p-3.5 font-bold text-slate-800">{{ $p->rt->nama_rt }}</td>
-                            <td class="p-3.5 text-slate-600 font-medium">{{ $p->alamat }}</td>
+                            <td class="p-3.5 font-bold text-slate-800 whitespace-nowrap">{{ $p->rt->nama_rt }}</td>
+                            <td class="p-3.5 text-slate-600 font-medium min-w-[160px]">{{ $p->alamat }}</td>
                             <td class="p-3.5 text-center font-mono font-bold">{{ $p->angka_meter_awal }}</td>
                             <td class="p-3.5 text-center">
                                 <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black {{ $p->status === 'aktif' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-600 border border-slate-300' }}">
                                     {{ strtoupper($p->status) }}
                                 </span>
                             </td>
-                            <td class="p-3.5 text-center">
+                            <td class="p-3.5 text-center whitespace-nowrap">
                                 <div class="flex items-center justify-center gap-1.5">
                                     <a href="{{ route('admin.pelanggan.show', $p->id) }}" class="p-1.5 text-sky-700 hover:bg-sky-100 rounded-lg transition border border-sky-200" title="Detail Riwayat">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -136,12 +136,12 @@
     <div x-show="createModal" class="fixed inset-0 z-50 overflow-y-auto" x-cloak>
         <div class="flex items-center justify-center min-h-screen p-4 text-center">
             <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" @click="createModal = false"></div>
-            <div class="inline-block bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-lg sm:w-full border-2 border-slate-300">
-                <div class="bg-gradient-to-r from-sky-700 to-teal-700 px-6 py-4 text-white flex items-center justify-between">
+            <div class="inline-block bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-lg sm:w-full border-2 border-slate-300 max-h-[90vh] flex flex-col my-6">
+                <div class="bg-gradient-to-r from-sky-700 to-teal-700 px-6 py-4 text-white flex items-center justify-between shrink-0">
                     <h3 class="text-base font-extrabold">Daftarkan Warga / Pelanggan Baru</h3>
                     <button @click="createModal = false" class="text-white/80 hover:text-white p-1">&times;</button>
                 </div>
-                <form action="{{ route('admin.pelanggan.store') }}" method="POST" class="p-6 space-y-4">
+                <form action="{{ route('admin.pelanggan.store') }}" method="POST" class="p-6 space-y-4 overflow-y-auto flex-1">
                     @csrf
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">No. Pelanggan <span class="text-rose-500">*</span></label>
@@ -164,7 +164,7 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Alamat (Dusun, RT, RW) <span class="text-rose-500">*</span></label>
                         <input type="text" name="alamat" required placeholder="Contoh: Dusun Argosari, RT 01 / RW 01, No. 12" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nomor WhatsApp/HP</label>
                             <input type="text" name="no_hp" placeholder="08xxxxxxxxxx" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
@@ -174,7 +174,7 @@
                             <input type="number" name="angka_meter_awal" value="0" min="0" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-bold font-mono focus:ring-2 focus:ring-sky-500 focus:outline-none">
                         </div>
                     </div>
-                    <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-200">
+                    <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-200 shrink-0">
                         <button type="button" @click="createModal = false" class="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl">Batal</button>
                         <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-sky-600 hover:bg-sky-500 rounded-xl shadow-md">Simpan Data Warga</button>
                     </div>
@@ -187,12 +187,12 @@
     <div x-show="editModal" class="fixed inset-0 z-50 overflow-y-auto" x-cloak>
         <div class="flex items-center justify-center min-h-screen p-4 text-center">
             <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" @click="editModal = false"></div>
-            <div class="inline-block bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-lg sm:w-full border-2 border-slate-300">
-                <div class="bg-slate-900 px-6 py-4 text-white flex items-center justify-between">
+            <div class="inline-block bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-lg sm:w-full border-2 border-slate-300 max-h-[90vh] flex flex-col my-6">
+                <div class="bg-slate-900 px-6 py-4 text-white flex items-center justify-between shrink-0">
                     <h3 class="text-base font-extrabold">Edit Data Warga</h3>
                     <button @click="editModal = false" class="text-white/80 hover:text-white p-1">&times;</button>
                 </div>
-                <form :action="'/admin/pelanggan/' + editPelanggan.id" method="POST" class="p-6 space-y-4">
+                <form :action="'/admin/pelanggan/' + editPelanggan.id" method="POST" class="p-6 space-y-4 overflow-y-auto flex-1">
                     @csrf
                     @method('PUT')
                     <div>
@@ -215,7 +215,7 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Alamat (Dusun, RT, RW)</label>
                         <input type="text" name="alamat" :value="editPelanggan.alamat" required placeholder="Contoh: Dusun Argosari, RT 01 / RW 01, No. 12" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nomor WhatsApp/HP</label>
                             <input type="text" name="no_hp" :value="editPelanggan.no_hp" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
@@ -228,7 +228,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-200">
+                    <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-200 shrink-0">
                         <button type="button" @click="editModal = false" class="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl">Batal</button>
                         <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-sky-600 hover:bg-sky-500 rounded-xl shadow-md">Update Data Warga</button>
                     </div>

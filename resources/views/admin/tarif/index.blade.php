@@ -4,7 +4,7 @@
 @section('page_title', 'Master Tarif & Skema Progresif')
 
 @section('content')
-<div class="space-y-6" x-data="{
+<div class="space-y-4 sm:space-y-6" x-data="{
     nama_skema: 'Tarif HIPPAM Tirto Makmur ' + new Date().getFullYear(),
     tarif_standar: 350,
     batas_kuota_standar: 20,
@@ -16,7 +16,7 @@
 }">
 
     <!-- Active Tariff Showcase Card -->
-    <div class="bg-gradient-to-r from-sky-900 via-sky-800 to-teal-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-sky-700/50">
+    <div class="bg-gradient-to-r from-sky-900 via-sky-800 to-teal-900 rounded-3xl p-5 sm:p-8 text-white shadow-xl border border-sky-700/50">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
                 <div class="flex items-center gap-2 mb-2">
@@ -67,10 +67,10 @@
     </div>
 
     <!-- Multi-Tier Simulation & Historical Rates -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         
         <!-- Formula Calculator Preview (1 Col) -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-4" x-data="{ testUsage: 55 }">
+        <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-5 sm:p-6 space-y-4" x-data="{ testUsage: 55 }">
             <h4 class="text-sm font-bold text-slate-800">Simulasi Rumus Excel PRD</h4>
             <p class="text-xs text-slate-400">Verifikasi formula tagihan otomatis berdasarkan angka pemakaian (contoh Saiful 55 m³)</p>
 

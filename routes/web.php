@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\PelangganController as AdminPelangganController;
 use App\Http\Controllers\Admin\TarifController as AdminTarifController;
 use App\Http\Controllers\Admin\LaporanController as AdminLaporanController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
-use App\Http\Controllers\Admin\ActivityLogController as AdminActivityLogController;
 use App\Http\Controllers\Petugas\DashboardController as PetugasDashboardController;
 use App\Http\Controllers\Petugas\InputMeterController as PetugasInputMeterController;
 use App\Http\Controllers\Petugas\PembayaranController as PetugasPembayaranController;
@@ -23,7 +22,6 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/quick-login/{user}', [AuthController::class, 'quickLogin'])->name('quick.login');
 
 // Shared Kwitansi Struk View
 Route::get('/kwitansi/{catatanMeter}', [KwitansiController::class, 'show'])->name('kwitansi.show');
@@ -58,9 +56,6 @@ Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');
     Route::put('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
-
-    // Activity Logs
-    Route::get('/activity-logs', [AdminActivityLogController::class, 'index'])->name('activity-logs.index');
 });
 
 // Petugas RT Panel Routes (Middleware: role:petugas,admin)

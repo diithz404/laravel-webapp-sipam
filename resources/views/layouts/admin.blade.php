@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="id" class="h-full bg-slate-50">
+<html lang="id" class="h-full bg-slate-100">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin Panel') — HIPPAM Tirto Makmur</title>
     
@@ -67,8 +67,15 @@
             background-color: #94a3b8;
             border-radius: 9999px;
         }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
         
-        /* 3. Garis Tabel Tebal dan Jelas */
+        /* Garis Tabel Tebal dan Jelas */
         table {
             border-collapse: collapse !important;
             width: 100%;
@@ -86,7 +93,6 @@
             background-color: #f8fafc !important;
         }
         
-        /* 8. Card Border & Shadow Global Enhancement */
         .card-custom {
             border: 1.5px solid #e2e8f0;
             box-shadow: 0 2px 8px 0 rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
@@ -100,7 +106,7 @@
         }
     </style>
 </head>
-<body class="h-full font-sans antialiased text-slate-800 bg-slate-100 flex" x-data="{ sidebarOpen: false }">
+<body class="h-full font-sans antialiased text-slate-800 bg-slate-100 flex flex-col min-h-screen" x-data="{ sidebarOpen: false }">
 
     <!-- Mobile Sidebar Backdrop -->
     <div x-show="sidebarOpen" 
@@ -118,10 +124,10 @@
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
         
         <!-- App Brand Header -->
-        <div class="flex items-center justify-between px-6 py-5 border-b border-slate-800 bg-slate-950/60">
+        <div class="flex items-center justify-between px-6 py-5 border-b border-slate-800 bg-slate-950/60 shrink-0">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-teal-400 flex items-center justify-center shadow-lg shadow-sky-500/30 group-hover:scale-105 transition">
-                    <svg class="w-7 h-7 text-white" viewBox="0 0 32 32" fill="currentColor">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-teal-400 flex items-center justify-center shadow-lg shadow-sky-500/30 group-hover:scale-105 transition">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 32 32" fill="currentColor">
                         <path d="M16 3 C16 3 8 12 8 19 a8 8 0 0 0 16 0 C24 12 16 3 16 3 Z" opacity="0.95"/>
                         <path d="M16 9 C16 9 11 15.5 11 19.5 a5 5 0 0 0 10 0 C21 15.5 16 9 16 9 Z" fill="white" opacity="0.4"/>
                         <ellipse cx="13" cy="20" rx="1.5" ry="2.5" fill="white" opacity="0.5"/>
@@ -134,8 +140,8 @@
                     <p class="text-xs text-slate-400 font-medium">HIPPAM Tirto Makmur</p>
                 </div>
             </a>
-            <button @click="sidebarOpen = false" class="lg:hidden p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button @click="sidebarOpen = false" class="lg:hidden p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition" aria-label="Tutup Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
 
@@ -169,7 +175,7 @@
                 Pengaturan Tarif
             </a>
 
-            <div class="pt-4 px-3 pb-2 text-[11px] font-bold tracking-wider text-slate-400 uppercase">Laporan & Audit</div>
+            <div class="pt-4 px-3 pb-2 text-[11px] font-bold tracking-wider text-slate-400 uppercase">Laporan & Pengguna</div>
 
             <a href="{{ route('admin.laporan.index') }}" 
                class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-sm transition {{ request()->routeIs('admin.laporan.*') ? 'bg-gradient-to-r from-sky-600 to-sky-500 text-white shadow-md shadow-sky-600/30' : 'text-slate-300 hover:bg-slate-800/80 hover:text-white' }}">
@@ -183,7 +189,6 @@
                 Kelola Petugas / User
             </a>
 
-
             <div class="pt-4 px-3 pb-2 text-[11px] font-bold tracking-wider text-slate-400 uppercase">Akses Petugas</div>
             <a href="{{ route('petugas.dashboard') }}" 
                class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-sm text-sky-300 bg-sky-950/60 border border-sky-800/50 hover:bg-sky-900/60 transition shadow">
@@ -193,10 +198,10 @@
         </nav>
 
         <!-- User Footer & Logout -->
-        <div class="p-4 border-t border-slate-800 bg-slate-950/60">
+        <div class="p-4 border-t border-slate-800 bg-slate-950/60 shrink-0">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3 min-w-0">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 text-white font-bold flex items-center justify-center text-sm shadow">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 text-white font-bold flex items-center justify-center text-sm shadow shrink-0">
                         {{ strtoupper(substr(auth()->user()->name ?? 'A', 0, 1)) }}
                     </div>
                     <div class="min-w-0 flex-1">
@@ -217,51 +222,54 @@
     <!-- Main Content Area -->
     <div class="flex-1 flex flex-col min-w-0 lg:pl-72">
         
-        <!-- 4. Header Admin Lebih Lebar & Mewah Vertikal (min-h-[80px]) -->
-        <header class="sticky top-0 z-30 flex items-center justify-between min-h-[80px] px-6 sm:px-8 bg-white/95 backdrop-blur border-b-2 border-slate-200 shadow-md">
-            <div class="flex items-center gap-4 py-2">
-                <button @click="sidebarOpen = true" class="p-2.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl lg:hidden border border-slate-200">
+        <!-- Header Navbar -->
+        <header class="sticky top-0 z-30 flex items-center justify-between min-h-[70px] sm:min-h-[80px] px-4 sm:px-8 bg-white/95 backdrop-blur border-b-2 border-slate-200 shadow-sm">
+            <div class="flex items-center gap-3 py-2 min-w-0">
+                <button @click="sidebarOpen = true" class="p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded-xl lg:hidden border-2 border-slate-200 shrink-0" aria-label="Buka Menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
-                <div class="flex flex-col justify-center">
-                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">@yield('page_title', 'Dashboard')</h2>
-                    <p class="text-xs font-semibold text-slate-500 mt-0.5">Sistem Informasi Pengelolaan Air Minum HIPPAM Tirto Makmur</p>
+                <div class="flex flex-col justify-center min-w-0">
+                    <h2 class="text-base sm:text-2xl font-black text-slate-900 tracking-tight leading-snug truncate">@yield('page_title', 'Dashboard')</h2>
+                    <p class="text-[11px] sm:text-xs font-semibold text-slate-500 truncate hidden sm:block">Sistem Informasi Pengelolaan Air Minum HIPPAM Tirto Makmur</p>
                 </div>
             </div>
 
             <!-- Top Right Bar -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="{{ route('petugas.dashboard') }}" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 rounded-xl hover:bg-sky-100 transition shadow-xs">
+                    <span>Panel Petugas</span> &rarr;
+                </a>
                 <!-- Logout Button -->
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="inline-flex items-center gap-1.5 px-3.5 py-2.5 text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-xl hover:bg-rose-100 transition shadow-sm">
+                    <button type="submit" class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-xl hover:bg-rose-100 transition shadow-xs">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
-                        <span>Keluar</span>
+                        <span class="hidden xs:inline">Keluar</span>
                     </button>
                 </form>
             </div>
         </header>
 
         <!-- Flash Messages & Main Page Content -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
+        <main class="flex-1 p-3.5 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-4 sm:space-y-6">
             @if(session('success'))
-                <div class="flex items-center gap-3 p-4 bg-emerald-50 border-2 border-emerald-300 text-emerald-900 rounded-2xl shadow-sm animate-fade-in" role="alert">
+                <div class="flex items-center gap-3 p-3.5 sm:p-4 bg-emerald-50 border-2 border-emerald-300 text-emerald-900 rounded-2xl shadow-xs animate-fade-in" role="alert">
                     <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <div class="text-sm font-semibold">{{ session('success') }}</div>
+                    <div class="text-xs sm:text-sm font-bold">{{ session('success') }}</div>
                 </div>
             @endif
 
             @if(session('error'))
-                <div class="flex items-center gap-3 p-4 bg-rose-50 border-2 border-rose-300 text-rose-900 rounded-2xl shadow-sm animate-fade-in" role="alert">
+                <div class="flex items-center gap-3 p-3.5 sm:p-4 bg-rose-50 border-2 border-rose-300 text-rose-900 rounded-2xl shadow-xs animate-fade-in" role="alert">
                     <svg class="w-5 h-5 text-rose-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <div class="text-sm font-semibold">{{ session('error') }}</div>
+                    <div class="text-xs sm:text-sm font-bold">{{ session('error') }}</div>
                 </div>
             @endif
 
             @if(session('warning'))
-                <div class="flex items-center gap-3 p-4 bg-amber-50 border-2 border-amber-300 text-amber-900 rounded-2xl shadow-sm animate-fade-in" role="alert">
+                <div class="flex items-center gap-3 p-3.5 sm:p-4 bg-amber-50 border-2 border-amber-300 text-amber-900 rounded-2xl shadow-xs animate-fade-in" role="alert">
                     <svg class="w-5 h-5 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    <div class="text-sm font-semibold">{{ session('warning') }}</div>
+                    <div class="text-xs sm:text-sm font-bold">{{ session('warning') }}</div>
                 </div>
             @endif
 
@@ -270,9 +278,9 @@
         </main>
 
         <!-- Footer -->
-        <div class="max-w-7xl mx-auto px-6 py-4 text-center text-xs text-slate-500 font-medium">
-            SIPAM (Sistem Informasi Pembayaran Air Minum) &bull; HIPPAM &ldquo;Tirto Makmur&rdquo; Desa Argosari &copy; {{ date('Y') }}
-        </div>
+        <footer class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-4 text-center text-xs text-slate-500 font-medium">
+            SIPAM &bull; HIPPAM &ldquo;Tirto Makmur&rdquo; Desa Argosari &copy; {{ date('Y') }}
+        </footer>
     </div>
 
     @stack('scripts')
