@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin Panel') — HIPPAM Tirto Makmur</title>
+    <title>@yield('title', 'Admin Panel') — HIPPAM TIRTO MAKMUR</title>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,18 +126,12 @@
         <!-- App Brand Header -->
         <div class="flex items-center justify-between px-6 py-5 border-b border-slate-800 bg-slate-950/60 shrink-0">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-teal-400 flex items-center justify-center shadow-lg shadow-sky-500/30 group-hover:scale-105 transition">
-                    <svg class="w-6 h-6 text-white" viewBox="0 0 32 32" fill="currentColor">
-                        <path d="M16 3 C16 3 8 12 8 19 a8 8 0 0 0 16 0 C24 12 16 3 16 3 Z" opacity="0.95"/>
-                        <path d="M16 9 C16 9 11 15.5 11 19.5 a5 5 0 0 0 10 0 C21 15.5 16 9 16 9 Z" fill="white" opacity="0.4"/>
-                        <ellipse cx="13" cy="20" rx="1.5" ry="2.5" fill="white" opacity="0.5"/>
-                    </svg>
-                </div>
+                <img src="{{ asset('logohippam.png') }}" alt="Logo HIPPAM TIRTO MAKMUR" class="w-10 h-10 rounded-2xl object-cover border border-white/20 shadow-lg bg-white p-0.5 group-hover:scale-105 transition shrink-0">
                 <div>
                     <h1 class="text-base font-extrabold tracking-tight text-white flex items-center gap-1.5">
                         SIPAM <span class="text-[10px] px-2 py-0.5 rounded-full bg-sky-500/25 text-sky-300 font-bold border border-sky-500/40">ADMIN</span>
                     </h1>
-                    <p class="text-xs text-slate-400 font-medium">HIPPAM Tirto Makmur</p>
+                    <p class="text-xs text-slate-400 font-medium">HIPPAM TIRTO MAKMUR</p>
                 </div>
             </a>
             <button @click="sidebarOpen = false" class="lg:hidden p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition" aria-label="Tutup Menu">
@@ -230,7 +224,7 @@
                 </button>
                 <div class="flex flex-col justify-center min-w-0">
                     <h2 class="text-base sm:text-2xl font-black text-slate-900 tracking-tight leading-snug truncate">@yield('page_title', 'Dashboard')</h2>
-                    <p class="text-[11px] sm:text-xs font-semibold text-slate-500 truncate hidden sm:block">Sistem Informasi Pengelolaan Air Minum HIPPAM Tirto Makmur</p>
+                    <p class="text-[11px] sm:text-xs font-semibold text-slate-500 truncate hidden sm:block">Sistem Informasi Pengelolaan Air Minum HIPPAM TIRTO MAKMUR</p>
                 </div>
             </div>
 

@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="space-y-4 sm:space-y-6" x-data="{
-    nama_skema: 'Tarif HIPPAM Tirto Makmur ' + new Date().getFullYear(),
+    nama_skema: 'Tarif HIPPAM TIRTO MAKMUR ' + new Date().getFullYear(),
     tarif_standar: 350,
     batas_kuota_standar: 20,
     tarif_progresif: 400,
@@ -27,7 +27,7 @@
                 </div>
                 <h3 class="text-2xl font-black tracking-tight text-white">{{ $activeTarif?->nama_skema ?? 'Tarif Standar HIPPAM' }}</h3>
                 <p class="text-xs text-sky-200 mt-1 max-w-xl">
-                    {{ $activeTarif?->keterangan ?? 'Tarif dasar mengacu pada ketetapan musyawarah HIPPAM Tirto Makmur Desa Argosari' }}
+                    {{ $activeTarif?->keterangan ?? 'Tarif dasar mengacu pada ketetapan musyawarah HIPPAM TIRTO MAKMUR Desa Argosari' }}
                 </p>
             </div>
 

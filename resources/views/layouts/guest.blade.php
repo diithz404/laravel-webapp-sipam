@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Login') — HIPPAM Tirto Makmur</title>
+    <title>@yield('title', 'Login') — HIPPAM TIRTO MAKMUR</title>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,15 +54,9 @@
     <!-- Header Navigation -->
     <header class="max-w-6xl w-full mx-auto px-4 py-6 flex items-center justify-between z-10">
         <a href="{{ url('/') }}" class="flex items-center gap-3 group">
-            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-teal-400 flex items-center justify-center shadow-lg shadow-sky-500/30 group-hover:scale-105 transition">
-                <svg class="w-7 h-7 text-white" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M16 3 C16 3 8 12 8 19 a8 8 0 0 0 16 0 C24 12 16 3 16 3 Z" opacity="0.95"/>
-                    <path d="M16 9 C16 9 11 15.5 11 19.5 a5 5 0 0 0 10 0 C21 15.5 16 9 16 9 Z" fill="white" opacity="0.4"/>
-                    <ellipse cx="13" cy="20" rx="1.5" ry="2.5" fill="white" opacity="0.5"/>
-                </svg>
-            </div>
+            <img src="{{ asset('logohippam.png') }}" alt="Logo HIPPAM TIRTO MAKMUR" class="w-11 h-11 rounded-2xl object-cover shadow-lg bg-white p-0.5 border border-white/30 group-hover:scale-105 transition shrink-0">
             <div>
-                <h1 class="text-base font-bold text-white tracking-tight leading-tight">HIPPAM Tirto Makmur</h1>
+                <h1 class="text-base font-bold text-white tracking-tight leading-tight">HIPPAM TIRTO MAKMUR</h1>
                 <p class="text-xs text-sky-300">Desa Argosari, Kec. Jabung, Kab. Malang</p>
             </div>
         </a>
@@ -75,7 +69,7 @@
 
     <!-- Footer -->
     <footer class="py-6 text-center text-xs text-slate-500 z-10 border-t border-slate-900">
-        Sistem Informasi Pengelolaan &amp; Pembayaran Air Minum &bull; HIPPAM Tirto Makmur, Desa Argosari
+        Sistem Informasi Pengelolaan &amp; Pembayaran Air Minum &bull; HIPPAM TIRTO MAKMUR, Desa Argosari
     </footer>
 
 </body>

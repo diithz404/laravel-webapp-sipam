@@ -236,7 +236,7 @@
                    . "No. Transaksi: " . ($latestPay->no_transaksi ?? '-') . "\n"
                    . "Tanggal Bayar: " . ($latestPay ? $latestPay->tanggal_bayar->format('d/m/Y') : date('d/m/Y')) . "\n"
                    . "Petugas Kasir: " . (auth()->user()->name ?? 'Petugas RT') . "\n\n"
-                   . "_Terima kasih atas pembayaran iuran air HIPPAM Tirto Makmur._";
+                   . "_Terima kasih atas pembayaran iuran air HIPPAM TIRTO MAKMUR._";
             $waCardUrl = "https://wa.me/" . ($cleanPhone ?: '') . "?text=" . urlencode($waMsg);
         @endphp
         <div data-catatan-id="{{ $catatan->id }}" class="bg-white rounded-2xl border-2 {{ $statusBorder }} shadow-sm hover:shadow-md transition overflow-hidden">
@@ -492,7 +492,7 @@
                         <div class="my-3 bg-white p-3.5 rounded-2xl inline-block shadow-inner border border-slate-200">
                             {{-- Dynamic QR Code Image --}}
                             <img :src="'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent('HIPPAM-TIRTOMAKMUR|ID:' + (selectedCatatan?.id ?? '') + '|TAGIHAN:' + tagihanSisa + '|REK:' + (selectedCatatan?.no_rek ?? '') + '|NAMA:' + (selectedCatatan?.nama ?? ''))"
-                                 alt="QRIS Code Pembayaran HIPPAM Tirto Makmur"
+                                 alt="QRIS Code Pembayaran HIPPAM TIRTO MAKMUR"
                                  class="w-44 h-44 sm:w-48 sm:h-48 mx-auto rounded-lg">
                         </div>
 

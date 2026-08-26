@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwitansi #{{ $catatanMeter->pelanggan->no_rekening }} - {{ $catatanMeter->periode->nama_periode }} - HIPPAM Tirto Makmur</title>
+    <title>Kwitansi #{{ $catatanMeter->pelanggan->no_rekening }} - {{ $catatanMeter->periode->nama_periode }} - HIPPAM TIRTO MAKMUR</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -49,7 +49,7 @@
                 . "No. Transaksi: " . ($latestPayment->no_transaksi ?? '-') . "\n"
                 . "Tanggal Bayar: " . ($latestPayment ? $latestPayment->tanggal_bayar->format('d/m/Y') : date('d/m/Y')) . "\n"
                 . "Petugas Kasir: " . ($latestPayment ? ($latestPayment->kasir->name ?? 'Petugas RT') : (auth()->user()->name ?? 'Petugas RT')) . "\n\n"
-                . "_Terima kasih atas pembayaran iuran air HIPPAM Tirto Makmur._";
+                . "_Terima kasih atas pembayaran iuran air HIPPAM TIRTO MAKMUR._";
         $waReceiptUrl = "https://wa.me/" . ($cleanPhone ?: '') . "?text=" . urlencode($waText);
     @endphp
 
@@ -78,8 +78,13 @@
         
         <!-- Header HIPPAM -->
         <div class="text-center pb-3 border-b-2 border-slate-800">
-            <h2 class="text-base font-extrabold tracking-wider text-slate-900 uppercase">HIPPAM "TIRTO MAKMUR"</h2>
-            <p class="text-[11px] font-semibold text-slate-600">DESA ARGOSARI, KEC. JABUNG, KAB. MALANG</p>
+            <div class="flex items-center justify-center gap-2.5 mb-1.5">
+                <img src="{{ asset('logohippam.png') }}" alt="Logo HIPPAM TIRTO MAKMUR" class="w-10 h-10 object-contain rounded-xl">
+                <div class="text-left">
+                    <h2 class="text-base font-extrabold tracking-wider text-slate-900 uppercase leading-none">HIPPAM TIRTO MAKMUR</h2>
+                    <p class="text-[10px] font-semibold text-slate-600 mt-0.5">DESA ARGOSARI, KEC. JABUNG, KAB. MALANG</p>
+                </div>
+            </div>
             <div class="inline-block mt-1 px-3 py-0.5 bg-slate-900 text-white text-[10px] font-bold tracking-widest rounded-full uppercase">
                 KWITANSI PEMBAYARAN AIR
             </div>

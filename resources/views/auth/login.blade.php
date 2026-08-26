@@ -6,15 +6,9 @@
 <div class="max-w-md w-full my-8">
     <div class="bg-slate-900/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
         <div class="text-center mb-6">
-            <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-teal-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-                <svg class="w-8 h-8 text-white" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M16 3 C16 3 8 12 8 19 a8 8 0 0 0 16 0 C24 12 16 3 16 3 Z" opacity="0.95"/>
-                    <path d="M16 9 C16 9 11 15.5 11 19.5 a5 5 0 0 0 10 0 C21 15.5 16 9 16 9 Z" fill="white" opacity="0.4"/>
-                    <ellipse cx="13" cy="20" rx="1.5" ry="2.5" fill="white" opacity="0.5"/>
-                </svg>
-            </div>
+            <img src="{{ asset('logohippam.png') }}" alt="Logo HIPPAM TIRTO MAKMUR" class="w-16 h-16 mx-auto mb-3 rounded-2xl object-cover shadow-lg bg-white p-1 border border-white/20">
             <h2 class="text-2xl font-extrabold text-white tracking-tight">Selamat Datang</h2>
-            <p class="text-sm text-slate-400 mt-1">HIPPAM Tirto Makmur &bull; Desa Argosari</p>
+            <p class="text-sm text-slate-400 mt-1">HIPPAM TIRTO MAKMUR &bull; Desa Argosari</p>
         </div>
 
         @if(session('success'))

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Petugas RT') — HIPPAM Tirto Makmur</title>
+    <title>@yield('title', 'Petugas RT') — HIPPAM TIRTO MAKMUR</title>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,24 +63,32 @@
             border-radius: 1.25rem;
             background-color: #ffffff;
         }
+
+        /* Clean Print Rules */
+        @media print {
+            body { background: white !important; padding: 0 !important; color: black !important; }
+            header, nav, .no-print, button, form { display: none !important; }
+            main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+            .print\:block { display: block !important; }
+            .print\:flex { display: flex !important; }
+            table { page-break-inside: auto; border: 1.5px solid #000 !important; }
+            table th, table td { border: 1px solid #000 !important; }
+            table thead th { background-color: #f1f5f9 !important; color: #000 !important; }
+            tfoot { background-color: #f8fafc !important; color: #000 !important; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
+        }
     </style>
 </head>
 <body class="h-full font-sans antialiased text-slate-800 bg-slate-100 flex flex-col">
 
     <!-- Top Header -->
-    <header class="sticky top-0 z-40 bg-gradient-to-r from-sky-800 via-cyan-900 to-teal-900 text-white shadow-lg border-b-2 border-sky-950/50">
+    <header class="no-print sticky top-0 z-40 bg-gradient-to-r from-sky-800 via-cyan-900 to-teal-900 text-white shadow-lg border-b-2 border-sky-950/50">
         <div class="max-w-4xl mx-auto px-4 py-3 sm:py-3.5 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="{{ route('petugas.dashboard') }}" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center border border-white/30 shadow-inner group-hover:scale-105 transition">
-                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" viewBox="0 0 32 32" fill="currentColor">
-                            <path d="M16 3 C16 3 8 12 8 19 a8 8 0 0 0 16 0 C24 12 16 3 16 3 Z" opacity="0.95"/>
-                            <path d="M16 9 C16 9 11 15.5 11 19.5 a5 5 0 0 0 10 0 C21 15.5 16 9 16 9 Z" fill="white" opacity="0.4"/>
-                            <ellipse cx="13" cy="20" rx="1.5" ry="2.5" fill="white" opacity="0.5"/>
-                        </svg>
-                    </div>
+                    <img src="{{ asset('logohippam.png') }}" alt="Logo HIPPAM TIRTO MAKMUR" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl object-cover border border-white/40 shadow-sm bg-white p-0.5 group-hover:scale-105 transition shrink-0">
                     <div>
-                        <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white leading-tight">HIPPAM Tirto Makmur</h1>
+                        <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white leading-tight">HIPPAM TIRTO MAKMUR</h1>
                         <p class="text-[11px] text-sky-200 font-medium">Panel Petugas RT &bull; Desa Argosari</p>
                     </div>
                 </a>
@@ -131,8 +139,8 @@
         @yield('content')
     </main>
 
-    <!-- Bottom Thumb Navigation Bar (Symmetrical & Uniform Across All 4 Menus) -->
-    <nav class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t-2 border-slate-200 shadow-2xl pb-safe">
+    <!-- Bottom Navigation Bar for Mobile (Native App Style) -->
+    <nav class="no-print sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t-2 border-slate-200 shadow-2xl px-2 py-1.5">
         <div class="max-w-md mx-auto grid grid-cols-4 h-16">
             <!-- 1. Beranda -->
             <a href="{{ route('petugas.dashboard') }}" 

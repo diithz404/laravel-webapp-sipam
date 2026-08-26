@@ -15,7 +15,7 @@
                     {{ strtoupper($selectedPeriode?->status ?? 'DRAFT') }}
                 </span>
             </div>
-            <p class="text-xs text-slate-500 mt-1 font-medium">Monitoring operasional dan keuangan seluruh RT &amp; Warga HIPPAM Tirto Makmur</p>
+            <p class="text-xs text-slate-500 mt-1 font-medium">Monitoring operasional dan keuangan seluruh RT &amp; Warga HIPPAM TIRTO MAKMUR</p>
         </div>
 
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">

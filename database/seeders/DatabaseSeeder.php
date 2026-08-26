@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         // 2. Create Master Skema Tarif Dasar HIPPAM
         $tarif = Tarif::create([
-            'nama_skema' => 'Tarif Standar HIPPAM Tirto Makmur',
+            'nama_skema' => 'Tarif Standar HIPPAM TIRTO MAKMUR',
             'tarif_standar' => 350.00,
             'batas_kuota_standar' => 20,
             'tarif_progresif' => 400.00,
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'tanggal_berlaku' => now()->startOfYear()->toDateString(),
             'is_active' => true,
             'created_by' => $admin->id,
-            'keterangan' => 'Skema tarif dasar mengacu pada ketetapan musyawarah HIPPAM Tirto Makmur',
+            'keterangan' => 'Skema tarif dasar mengacu pada ketetapan musyawarah HIPPAM TIRTO MAKMUR',
         ]);
 
         TarifTier::create([
