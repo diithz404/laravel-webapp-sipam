@@ -179,7 +179,7 @@
                     <thead class="bg-slate-100 text-slate-700 uppercase font-black text-[10px] tracking-wider border-b-2 border-slate-300">
                         <tr>
                             <th class="px-3 py-3 text-center w-10">No</th>
-                            <th class="px-3 py-3">No. Rekening</th>
+                            <th class="px-3 py-3">No. Pelanggan</th>
                             <th class="px-3 py-3 min-w-[130px]">Nama Warga &amp; Kontak</th>
                             <th class="px-3 py-3 min-w-[200px]">Alamat Dusun</th>
                             <th class="px-3 py-3 text-center min-w-[85px]">Stand Lalu</th>
@@ -209,7 +209,7 @@
                             {{-- 1. No --}}
                             <td class="px-3 py-2.5 text-center font-bold text-slate-500 font-mono">{{ $index + 1 }}</td>
 
-                            {{-- 2. No. Rekening --}}
+                            {{-- 2. No. Pelanggan --}}
                             <td class="px-3 py-2.5 font-mono">
                                 <span class="px-2 py-0.5 rounded-md bg-sky-100 text-sky-800 font-bold text-[11px] border border-sky-300">
                                     {{ $warga->no_rekening }}

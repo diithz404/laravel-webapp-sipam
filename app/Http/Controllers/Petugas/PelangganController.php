@@ -163,7 +163,7 @@ class PelangganController extends Controller
             // Table columns
             fputcsv($file, [
                 'No',
-                'No. Rekening',
+                'No. Pelanggan',
                 'Nama Warga',
                 'No. HP',
                 'Alamat',
