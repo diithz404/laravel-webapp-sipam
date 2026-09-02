@@ -110,7 +110,7 @@
             </div>
             <div>
                 <h4 class="text-xs sm:text-sm font-extrabold text-slate-800 group-hover:text-teal-600">Kasir / Bayar</h4>
-                <p class="text-[10px] text-slate-500 font-medium">Cash &amp; QRIS digital</p>
+                <p class="text-[10px] text-slate-500 font-medium">Pembayaran Tunai / Cash</p>
             </div>
         </a>
 

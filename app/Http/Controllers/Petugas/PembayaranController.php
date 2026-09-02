@@ -70,7 +70,7 @@ class PembayaranController extends Controller
             'catatan_meter_id' => 'required|exists:catatan_meters,id',
             'jumlah_bayar' => 'required|numeric|min:100',
             'tanggal_bayar' => 'required|date',
-            'metode' => 'required|in:tunai,transfer,qris',
+            'metode' => 'required|in:tunai,transfer',
             'catatan' => 'nullable|string|max:255',
         ]);
 
