@@ -16,13 +16,22 @@ class InputMeterController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $userRts = $user->rts()->orderBy('kode_rt')->get();
-        if ($userRts->isEmpty()) {
+        if ($user->isPetugas()) {
+            $userRts = $user->rts()->orderBy('kode_rt')->get();
+            if ($userRts->isEmpty() && $user->rt_id) {
+                $userRts = Rt::where('id', $user->rt_id)->get();
+            }
+        } else {
             $userRts = Rt::orderBy('kode_rt')->get();
         }
 
         $activePeriode = PeriodeTagihan::getActivePeriode() ?? PeriodeTagihan::latest('id')->first();
         $selectedRtId = $request->query('rt_id', $userRts->first()?->id);
+
+        if ($user->isPetugas() && $selectedRtId && !$userRts->contains('id', $selectedRtId)) {
+            abort(403, 'Anda tidak memiliki hak akses ke data RT ini.');
+        }
+
         $selectedRt = $userRts->firstWhere('id', $selectedRtId) ?? $userRts->first();
 
         $activeTarif = Tarif::getActiveTarif() ?? new Tarif([
@@ -65,14 +74,14 @@ class InputMeterController extends Controller
                     ->latest('id')
                     ->first();
 
-                $angkaLalu = $catatanLalu ? ($catatanLalu->angka_ini ?? $catatanLalu->angka_lalu) : $pelanggan->angka_meter_awal;
+                $angkaLalu = $catatanLalu ? ($catatanLalu->angka_ini ?? $catatanLalu->angka_lalu) : (int) ($pelanggan->angka_meter_awal ?? 0);
                 $tunggakanLalu = $catatanLalu ? (float) $catatanLalu->sisa_tagihan : 0;
                 $biayaAdmin = (float) $activeTarif->biaya_admin;
 
                 $record = CatatanMeter::create([
                     'pelanggan_id' => $pelanggan->id,
                     'periode_id' => $activePeriode->id,
-                    'angka_lalu' => $angkaLalu,
+                    'angka_lalu' => (int) ($angkaLalu ?? 0),
                     'angka_ini' => null,
                     'pemakaian' => 0,
                     'biaya_admin' => $biayaAdmin,
@@ -110,6 +119,16 @@ class InputMeterController extends Controller
         ]);
 
         $catatan = CatatanMeter::with('pelanggan')->findOrFail($validated['catatan_id']);
+        $user = auth()->user();
+        if ($user->isPetugas()) {
+            $allowedRtIds = $user->rts->pluck('id')->all();
+            if ($user->rt_id && !in_array($user->rt_id, $allowedRtIds)) {
+                $allowedRtIds[] = $user->rt_id;
+            }
+            if (!in_array($catatan->pelanggan->rt_id, $allowedRtIds)) {
+                abort(403, 'Anda tidak memiliki hak akses ke data warga RT ini.');
+            }
+        }
         
         if ($validated['angka_ini'] < $catatan->angka_lalu) {
             if ($request->expectsJson() || $request->ajax()) {
@@ -175,18 +194,22 @@ class InputMeterController extends Controller
 
         $savedCount = 0;
         $tarif = Tarif::getActiveTarif();
+        $user = auth()->user();
+        $allowedRtIds = $user->isAdmin() ? null : ($user->rts->pluck('id')->all() ?: ($user->rt_id ? [$user->rt_id] : []));
 
         foreach ($validated['meters'] as $item) {
             if ($item['angka_ini'] !== null && $item['angka_ini'] !== '') {
-                $catatan = CatatanMeter::find($item['id']);
-                if ($catatan && $item['angka_ini'] >= $catatan->angka_lalu) {
-                    $catatan->angka_ini = (int) $item['angka_ini'];
-                    $catatan->status_meter = 'tercatat';
-                    $catatan->input_by = auth()->id();
-                    $catatan->input_at = now();
-                    $catatan->recalculateBilling($tarif);
-                    $catatan->save();
-                    $savedCount++;
+                $catatan = CatatanMeter::with('pelanggan')->find($item['id']);
+                if ($catatan && ($allowedRtIds === null || in_array($catatan->pelanggan->rt_id, $allowedRtIds))) {
+                    if ($item['angka_ini'] >= $catatan->angka_lalu) {
+                        $catatan->angka_ini = (int) $item['angka_ini'];
+                        $catatan->status_meter = 'tercatat';
+                        $catatan->input_by = auth()->id();
+                        $catatan->input_at = now();
+                        $catatan->recalculateBilling($tarif);
+                        $catatan->save();
+                        $savedCount++;
+                    }
                 }
             }
         }
@@ -202,6 +225,17 @@ class InputMeterController extends Controller
             'rt_id' => 'required|exists:rts,id',
             'periode_id' => 'required|exists:periode_tagihans,id',
         ]);
+
+        $user = auth()->user();
+        if ($user->isPetugas()) {
+            $allowedRtIds = $user->rts->pluck('id')->all();
+            if ($user->rt_id && !in_array($user->rt_id, $allowedRtIds)) {
+                $allowedRtIds[] = $user->rt_id;
+            }
+            if (!in_array($validated['rt_id'], $allowedRtIds)) {
+                abort(403, 'Anda tidak memiliki hak akses ke RT ini.');
+            }
+        }
 
         $rt = Rt::findOrFail($validated['rt_id']);
         $catatans = CatatanMeter::whereHas('pelanggan', function ($q) use ($rt) {

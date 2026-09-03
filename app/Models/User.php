@@ -18,7 +18,10 @@ class User extends Authenticatable
         'phone',
         'role',
         'status',
+        'is_active',
+        'rt_id',
         'password',
+        'password_changed_at',
     ];
 
     protected $hidden = [
@@ -30,8 +33,20 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'password_changed_at' => 'datetime',
+            'is_active' => 'boolean',
             'password' => 'hashed',
         ];
+    }
+
+    public function rt()
+    {
+        return $this->belongsTo(Rt::class, 'rt_id');
+    }
+
+    public function isDefaultPassword(): bool
+    {
+        return is_null($this->password_changed_at);
     }
 
     public function isAdmin(): bool

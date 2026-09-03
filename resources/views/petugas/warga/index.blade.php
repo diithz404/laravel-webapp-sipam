@@ -185,11 +185,11 @@
                     <thead class="bg-slate-100 text-slate-700 uppercase font-black text-[10px] tracking-wider border-b-2 border-slate-300">
                         <tr>
                             <th class="px-3 py-3 text-center w-10">No</th>
-                            <th class="px-3 py-3">No. Pelanggan</th>
+                            <th class="px-3 py-3 min-w-[130px]">No. Pelanggan</th>
                             <th class="px-3 py-3 min-w-[130px]">Nama Warga &amp; Kontak</th>
                             <th class="px-3 py-3 min-w-[190px]">Alamat (Dusun &amp; RT/RW)</th>
                             <th class="px-3 py-3 text-center min-w-[85px]">Stand Lalu</th>
-                            <th class="px-3 py-3 text-center min-w-[95px]">Stand Kini</th>
+                            <th class="px-3 py-3 text-center min-w-[115px]">Stand Kini</th>
                             <th class="px-3 py-3 text-center min-w-[80px]">Pemakaian</th>
                             <th class="px-3 py-3 text-right min-w-[110px]">Total Tagihan</th>
                             <th class="px-3 py-3 text-right min-w-[100px]">Terbayar</th>

@@ -15,15 +15,20 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $userRts = $user->rts()->orderBy('kode_rt')->get();
-
-        // If user has no assigned RTs, fallback to all RTs
-        if ($userRts->isEmpty() || $user->isAdmin()) {
+        if ($user->isPetugas()) {
+            $userRts = $user->rts()->orderBy('kode_rt')->get();
+            if ($userRts->isEmpty() && $user->rt_id) {
+                $userRts = Rt::where('id', $user->rt_id)->get();
+            }
+        } else {
             $userRts = Rt::orderBy('kode_rt')->get();
         }
 
         $activePeriode = PeriodeTagihan::getActivePeriode() ?? PeriodeTagihan::latest('id')->first();
         $selectedRtId = $request->query('rt_id', $userRts->first()?->id);
+        if ($user->isPetugas() && $selectedRtId && !$userRts->contains('id', $selectedRtId)) {
+            $selectedRtId = $userRts->first()?->id;
+        }
         $selectedRt = $userRts->firstWhere('id', $selectedRtId) ?? $userRts->first();
 
         // Data for selected RT & active period

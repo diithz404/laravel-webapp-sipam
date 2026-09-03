@@ -79,7 +79,11 @@
 
                 <!-- Footer Stats -->
                 <div class="mt-5 pt-3.5 border-t-2 border-slate-200 flex items-center justify-between text-xs">
-                    <span class="text-slate-600 font-bold bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">{{ $rt->pelanggans_count }} Warga Binaan</span>
+                    @if($rt->pelanggans_count > 0)
+                        <span class="text-slate-600 font-bold bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">{{ $rt->pelanggans_count }} Warga Binaan</span>
+                    @else
+                        <span class="text-amber-800 font-bold bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300">⚠️ Belum Ada Data</span>
+                    @endif
                     <a href="{{ route('admin.pelanggan.index', ['rt_id' => $rt->id]) }}" class="font-extrabold text-sky-700 hover:text-sky-800 flex items-center gap-1">
                         <span>Lihat Warga</span> &rarr;
                     </a>

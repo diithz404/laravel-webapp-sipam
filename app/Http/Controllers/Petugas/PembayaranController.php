@@ -16,8 +16,12 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $userRts = $user->rts()->orderBy('kode_rt')->get();
-        if ($userRts->isEmpty() || $user->isAdmin()) {
+        if ($user->isPetugas()) {
+            $userRts = $user->rts()->orderBy('kode_rt')->get();
+            if ($userRts->isEmpty() && $user->rt_id) {
+                $userRts = Rt::where('id', $user->rt_id)->get();
+            }
+        } else {
             $userRts = Rt::orderBy('kode_rt')->get();
         }
 
@@ -26,6 +30,10 @@ class PembayaranController extends Controller
         $selectedPeriode = PeriodeTagihan::find($periodeId) ?? $activePeriode;
 
         $rtId = $request->query('rt_id', $userRts->first()?->id);
+        if ($user->isPetugas() && $rtId && !$userRts->contains('id', $rtId)) {
+            abort(403, 'Anda tidak memiliki hak akses ke data RT ini.');
+        }
+
         $status = $request->query('status');
         $search = $request->query('search');
 
@@ -77,7 +85,17 @@ class PembayaranController extends Controller
             'catatan' => 'nullable|string|max:255',
         ]);
 
-        $catatan = CatatanMeter::findOrFail($validated['catatan_meter_id']);
+        $catatan = CatatanMeter::with('pelanggan')->findOrFail($validated['catatan_meter_id']);
+        $user = auth()->user();
+        if ($user->isPetugas()) {
+            $allowedRtIds = $user->rts->pluck('id')->all();
+            if ($user->rt_id && !in_array($user->rt_id, $allowedRtIds)) {
+                $allowedRtIds[] = $user->rt_id;
+            }
+            if (!in_array($catatan->pelanggan->rt_id, $allowedRtIds)) {
+                abort(403, 'Anda tidak memiliki hak akses untuk mencatat pembayaran warga RT ini.');
+            }
+        }
         
         $pembayaran = Pembayaran::create([
             'no_transaksi' => 'TRX-' . date('Ym') . '-' . str_pad(Pembayaran::count() + 1, 4, '0', STR_PAD_LEFT),

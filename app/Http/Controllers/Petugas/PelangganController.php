@@ -14,8 +14,12 @@ class PelangganController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $userRts = $user->rts()->orderBy('kode_rt')->get();
-        if ($userRts->isEmpty() || $user->isAdmin()) {
+        if ($user->isPetugas()) {
+            $userRts = $user->rts()->orderBy('kode_rt')->get();
+            if ($userRts->isEmpty() && $user->rt_id) {
+                $userRts = Rt::where('id', $user->rt_id)->get();
+            }
+        } else {
             $userRts = Rt::orderBy('kode_rt')->get();
         }
 
@@ -26,6 +30,10 @@ class PelangganController extends Controller
         $selectedPeriode = PeriodeTagihan::find($periodeId) ?? $activePeriode;
 
         $rtId = $request->query('rt_id', $userRts->first()?->id);
+        if ($user->isPetugas() && $rtId && !$userRts->contains('id', $rtId)) {
+            abort(403, 'Anda tidak memiliki hak akses ke data RT ini.');
+        }
+
         $selectedRt = $userRts->firstWhere('id', $rtId) ?? $userRts->first();
 
         $search = $request->query('search');
@@ -130,6 +138,9 @@ class PelangganController extends Controller
     {
         $user = auth()->user();
         $allowedRtIds = $user->isAdmin() ? Rt::pluck('id')->toArray() : $user->rts()->pluck('rts.id')->toArray();
+        if (!$user->isAdmin() && $user->rt_id && !in_array($user->rt_id, $allowedRtIds)) {
+            $allowedRtIds[] = $user->rt_id;
+        }
 
         $validated = $request->validate([
             'no_rekening' => 'required|string|max:30|unique:pelanggans,no_rekening',
@@ -171,7 +182,7 @@ class PelangganController extends Controller
                 'pelanggan_id' => $pelanggan->id,
                 'periode_id' => $activePeriode->id,
             ], [
-                'angka_lalu' => $pelanggan->angka_meter_awal,
+                'angka_lalu' => (int) ($pelanggan->angka_meter_awal ?? 0),
                 'angka_ini' => null,
                 'pemakaian' => 0,
                 'biaya_admin' => 2000,
@@ -192,6 +203,9 @@ class PelangganController extends Controller
     {
         $user = auth()->user();
         $allowedRtIds = $user->isAdmin() ? Rt::pluck('id')->toArray() : $user->rts()->pluck('rts.id')->toArray();
+        if (!$user->isAdmin() && $user->rt_id && !in_array($user->rt_id, $allowedRtIds)) {
+            $allowedRtIds[] = $user->rt_id;
+        }
 
         if (!in_array($pelanggan->rt_id, $allowedRtIds)) {
             abort(403, 'Anda tidak memiliki akses ke wilayah warga ini.');

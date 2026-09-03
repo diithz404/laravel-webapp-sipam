@@ -11,12 +11,55 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::with(['rts'])->orderBy('role')->orderBy('name')->get();
-        $rts = Rt::orderBy('kode_rt')->get();
+        $roleFilter = $request->query('role');
+        $rtFilter = $request->query('rt_id');
+        $search = $request->query('search');
 
-        return view('admin.users.index', compact('users', 'rts'));
+        $query = User::with(['rts' => function ($q) {
+            $q->withCount('pelanggans');
+        }, 'rt' => function ($q) {
+            $q->withCount('pelanggans');
+        }]);
+
+        if ($roleFilter) {
+            $query->where('role', $roleFilter);
+        }
+
+        if ($rtFilter) {
+            $query->where(function ($q) use ($rtFilter) {
+                $q->where('rt_id', $rtFilter)
+                  ->orWhereHas('rts', fn($rq) => $rq->where('rts.id', $rtFilter));
+            });
+        }
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%")
+                  ->orWhere('phone', 'like', "%{$search}%");
+            });
+        }
+
+        $users = $query->orderBy('role')->orderBy('name')->get();
+        $rts = Rt::withCount('pelanggans')->orderBy('kode_rt')->get();
+
+        // Statistics
+        $totalAdmin = User::where('role', 'admin')->count();
+        $totalPetugas = User::where('role', 'petugas')->count();
+        $petugasDefaultPassword = User::where('role', 'petugas')->whereNull('password_changed_at')->count();
+
+        return view('admin.users.index', compact(
+            'users',
+            'rts',
+            'roleFilter',
+            'rtFilter',
+            'search',
+            'totalAdmin',
+            'totalPetugas',
+            'petugasDefaultPassword'
+        ));
     }
 
     public function store(Request $request)
@@ -31,13 +74,18 @@ class UserController extends Controller
             'rt_ids.*' => 'exists:rts,id',
         ]);
 
+        $primaryRtId = !empty($validated['rt_ids']) ? $validated['rt_ids'][0] : null;
+
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'] ?? null,
             'role' => $validated['role'],
             'status' => 'active',
+            'is_active' => true,
+            'rt_id' => $validated['role'] === 'petugas' ? $primaryRtId : null,
             'password' => Hash::make($validated['password']),
+            'password_changed_at' => now(), // Manual create by admin with custom password
         ]);
 
         if (!empty($validated['rt_ids']) && $user->isPetugas()) {
@@ -62,16 +110,21 @@ class UserController extends Controller
             'rt_ids.*' => 'exists:rts,id',
         ]);
 
+        $primaryRtId = !empty($validated['rt_ids']) ? $validated['rt_ids'][0] : null;
+
         $updateData = [
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'] ?? null,
             'role' => $validated['role'],
             'status' => $validated['status'],
+            'is_active' => $validated['status'] === 'active',
+            'rt_id' => $validated['role'] === 'petugas' ? $primaryRtId : null,
         ];
 
         if (!empty($validated['password'])) {
             $updateData['password'] = Hash::make($validated['password']);
+            $updateData['password_changed_at'] = now();
         }
 
         $user->update($updateData);
@@ -85,6 +138,20 @@ class UserController extends Controller
         ActivityLog::log('UPDATE_USER', "Memperbarui profil pengguna {$user->name} (Role: {$user->role}, Status: {$user->status})");
 
         return redirect()->route('admin.users.index')->with('success', "Data pengguna {$user->name} berhasil diperbarui.");
+    }
+
+    public function resetPassword(Request $request, User $user)
+    {
+        $newPassword = $request->input('custom_password') ?: 'password';
+
+        $user->update([
+            'password' => Hash::make($newPassword),
+            'password_changed_at' => null, // Reset status to default
+        ]);
+
+        ActivityLog::log('RESET_PASSWORD_USER', "Mereset password akun pengguna: {$user->name} ({$user->email})");
+
+        return back()->with('success', "Password untuk akun {$user->name} berhasil direset menjadi: '{$newPassword}'. Silakan infokan ke petugas terkait.");
     }
 
     public function destroy(User $user)

@@ -112,7 +112,7 @@ class PelangganController extends Controller
                 'pelanggan_id' => $pelanggan->id,
                 'periode_id' => $activePeriode->id,
             ], [
-                'angka_lalu' => $pelanggan->angka_meter_awal,
+                'angka_lalu' => (int) ($pelanggan->angka_meter_awal ?? 0),
                 'angka_ini' => null,
                 'pemakaian' => 0,
                 'biaya_admin' => 2000,

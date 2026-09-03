@@ -68,5 +68,11 @@ class DatabaseSeeder extends Seeder
             'status' => 'aktif',
             'jatuh_tempo' => date('Y-m-25'),
         ]);
+
+        // 4. Seed Data Pelanggan Bendrong & Petugas RT
+        $this->call([
+            BendrongPelangganSeeder::class,
+            PetugasSeeder::class,
+        ]);
     }
 }
