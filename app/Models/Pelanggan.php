@@ -15,6 +15,9 @@ class Pelanggan extends Model
     protected $fillable = [
         'no_rekening',
         'nama',
+        'dusun',
+        'no_rt',
+        'no_rw',
         'alamat',
         'rt_id',
         'no_hp',
@@ -22,6 +25,46 @@ class Pelanggan extends Model
         'status',
         'urutan_rumah',
     ];
+
+    public static function formatAlamat(?string $dusun, ?string $no_rt, ?string $no_rw): string
+    {
+        $dusunClean = trim((string) $dusun);
+        if (!empty($dusunClean)) {
+            $prefix = !preg_match('/^dusun\s+/i', $dusunClean) ? 'Dusun ' : '';
+            $fullDusun = $prefix . $dusunClean;
+        } else {
+            $fullDusun = '';
+        }
+
+        $rtDigits = preg_replace('/[^0-9]/', '', (string)$no_rt);
+        $rwDigits = preg_replace('/[^0-9]/', '', (string)$no_rw);
+
+        $rtClean = !empty($rtDigits) ? str_pad($rtDigits, 2, '0', STR_PAD_LEFT) : trim((string)$no_rt);
+        $rwClean = !empty($rwDigits) ? str_pad($rwDigits, 2, '0', STR_PAD_LEFT) : trim((string)$no_rw);
+
+        $parts = [];
+        if (!empty($fullDusun)) {
+            $parts[] = $fullDusun;
+        }
+        if (!empty($rtClean) && !empty($rwClean)) {
+            $parts[] = "RT {$rtClean} / RW {$rwClean}";
+        } elseif (!empty($rtClean)) {
+            $parts[] = "RT {$rtClean}";
+        } elseif (!empty($rwClean)) {
+            $parts[] = "RW {$rwClean}";
+        }
+
+        return implode(', ', $parts);
+    }
+
+    protected static function booted()
+    {
+        static::saving(function ($pelanggan) {
+            if (!empty($pelanggan->dusun) || !empty($pelanggan->no_rt) || !empty($pelanggan->no_rw)) {
+                $pelanggan->alamat = static::formatAlamat($pelanggan->dusun, $pelanggan->no_rt, $pelanggan->no_rw);
+            }
+        });
+    }
 
     public function rt(): BelongsTo
     {

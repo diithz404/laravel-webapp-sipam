@@ -25,6 +25,9 @@ class PelangganController extends Controller
                 $q->where('nama', 'like', "%{$search}%")
                   ->orWhere('no_rekening', 'like', "%{$search}%")
                   ->orWhere('alamat', 'like', "%{$search}%")
+                  ->orWhere('dusun', 'like', "%{$search}%")
+                  ->orWhere('no_rt', 'like', "%{$search}%")
+                  ->orWhere('no_rw', 'like', "%{$search}%")
                   ->orWhere('no_hp', 'like', "%{$search}%");
             });
         }
@@ -40,7 +43,14 @@ class PelangganController extends Controller
         $pelanggans = $query->orderBy('rt_id')->orderBy('urutan_rumah')->paginate(15)->withQueryString();
         $rts = Rt::orderBy('kode_rt')->get();
 
-        return view('admin.pelanggan.index', compact('pelanggans', 'rts', 'search', 'rtId', 'status'));
+        $dusunList = Rt::pluck('wilayah')
+            ->map(fn($w) => preg_replace('/^Dusun\s+/i', '', trim($w)))
+            ->merge(Pelanggan::whereNotNull('dusun')->pluck('dusun')->map(fn($d) => preg_replace('/^Dusun\s+/i', '', trim($d))))
+            ->filter()
+            ->unique()
+            ->values();
+
+        return view('admin.pelanggan.index', compact('pelanggans', 'rts', 'search', 'rtId', 'status', 'dusunList'));
     }
 
     public function show(Pelanggan $pelanggan)
@@ -65,17 +75,29 @@ class PelangganController extends Controller
         $validated = $request->validate([
             'no_rekening' => 'required|string|max:30|unique:pelanggans,no_rekening',
             'nama' => 'required|string|max:150',
-            'alamat' => 'required|string|max:255',
+            'dusun' => 'required|string|max:100',
+            'no_rt' => 'nullable|string|max:10',
+            'rt' => 'nullable|string|max:10',
+            'no_rw' => 'nullable|string|max:10',
+            'rw' => 'nullable|string|max:10',
             'rt_id' => 'required|exists:rts,id',
             'no_hp' => 'nullable|string|max:20',
             'angka_meter_awal' => 'required|integer|min:0',
             'urutan_rumah' => 'nullable|integer',
         ]);
 
+        $dusun = trim($validated['dusun']);
+        $no_rt = trim($validated['no_rt'] ?? $validated['rt'] ?? '');
+        $no_rw = trim($validated['no_rw'] ?? $validated['rw'] ?? '');
+        $alamat = Pelanggan::formatAlamat($dusun, $no_rt, $no_rw);
+
         $pelanggan = Pelanggan::create([
             'no_rekening' => $validated['no_rekening'],
             'nama' => $validated['nama'],
-            'alamat' => $validated['alamat'],
+            'dusun' => $dusun,
+            'no_rt' => $no_rt,
+            'no_rw' => $no_rw,
+            'alamat' => $alamat,
             'rt_id' => $validated['rt_id'],
             'no_hp' => $validated['no_hp'] ?? null,
             'angka_meter_awal' => $validated['angka_meter_awal'],
@@ -111,14 +133,34 @@ class PelangganController extends Controller
         $validated = $request->validate([
             'no_rekening' => 'required|string|max:30|unique:pelanggans,no_rekening,' . $pelanggan->id,
             'nama' => 'required|string|max:150',
-            'alamat' => 'required|string|max:255',
+            'dusun' => 'required|string|max:100',
+            'no_rt' => 'nullable|string|max:10',
+            'rt' => 'nullable|string|max:10',
+            'no_rw' => 'nullable|string|max:10',
+            'rw' => 'nullable|string|max:10',
             'rt_id' => 'required|exists:rts,id',
             'no_hp' => 'nullable|string|max:20',
             'status' => 'required|in:aktif,nonaktif',
             'urutan_rumah' => 'nullable|integer',
         ]);
 
-        $pelanggan->update($validated);
+        $dusun = trim($validated['dusun']);
+        $no_rt = trim($validated['no_rt'] ?? $validated['rt'] ?? '');
+        $no_rw = trim($validated['no_rw'] ?? $validated['rw'] ?? '');
+        $alamat = Pelanggan::formatAlamat($dusun, $no_rt, $no_rw);
+
+        $pelanggan->update([
+            'no_rekening' => $validated['no_rekening'],
+            'nama' => $validated['nama'],
+            'dusun' => $dusun,
+            'no_rt' => $no_rt,
+            'no_rw' => $no_rw,
+            'alamat' => $alamat,
+            'rt_id' => $validated['rt_id'],
+            'no_hp' => $validated['no_hp'] ?? null,
+            'status' => $validated['status'],
+            'urutan_rumah' => $validated['urutan_rumah'] ?? $pelanggan->urutan_rumah,
+        ]);
 
         ActivityLog::log('UPDATE_PELANGGAN', "Memperbarui data pelanggan {$pelanggan->nama} ({$pelanggan->no_rekening})");
 

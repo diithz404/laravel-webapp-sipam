@@ -74,5 +74,7 @@ Route::middleware(['role:petugas,admin'])->prefix('petugas')->name('petugas.')->
 
     // Data Warga / Pelanggan RT
     Route::get('/warga', [PetugasPelangganController::class, 'index'])->name('warga.index');
+    Route::post('/warga', [PetugasPelangganController::class, 'store'])->name('warga.store');
+    Route::put('/warga/{pelanggan}', [PetugasPelangganController::class, 'update'])->name('warga.update');
     Route::get('/warga/export-csv', [PetugasPelangganController::class, 'exportCsv'])->name('warga.export');
 });

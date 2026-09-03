@@ -46,7 +46,10 @@ class PembayaranController extends Controller
             $query->whereHas('pelanggan', function ($q) use ($search) {
                 $q->where('nama', 'like', "%{$search}%")
                   ->orWhere('no_rekening', 'like', "%{$search}%")
-                  ->orWhere('alamat', 'like', "%{$search}%");
+                  ->orWhere('alamat', 'like', "%{$search}%")
+                  ->orWhere('dusun', 'like', "%{$search}%")
+                  ->orWhere('no_rt', 'like', "%{$search}%")
+                  ->orWhere('no_rw', 'like', "%{$search}%");
             });
         }
 

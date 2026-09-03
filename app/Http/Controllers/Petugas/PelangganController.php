@@ -47,6 +47,9 @@ class PelangganController extends Controller
                 $q->where('nama', 'like', "%{$search}%")
                   ->orWhere('no_rekening', 'like', "%{$search}%")
                   ->orWhere('alamat', 'like', "%{$search}%")
+                  ->orWhere('dusun', 'like', "%{$search}%")
+                  ->orWhere('no_rt', 'like', "%{$search}%")
+                  ->orWhere('no_rw', 'like', "%{$search}%")
                   ->orWhere('no_hp', 'like', "%{$search}%");
             });
         }
@@ -89,6 +92,13 @@ class PelangganController extends Controller
         $persenCatat = $totalWarga > 0 ? round(($totalSudahDicatat / $totalWarga) * 100) : 0;
         $persenBayar = $totalTagihanRp > 0 ? round(($totalTerbayarRp / $totalTagihanRp) * 100) : 0;
 
+        $dusunList = Rt::pluck('wilayah')
+            ->map(fn($w) => preg_replace('/^Dusun\s+/i', '', trim($w)))
+            ->merge(Pelanggan::whereNotNull('dusun')->pluck('dusun')->map(fn($d) => preg_replace('/^Dusun\s+/i', '', trim($d))))
+            ->filter()
+            ->unique()
+            ->values();
+
         return view('petugas.warga.index', compact(
             'userRts',
             'rtId',
@@ -111,8 +121,118 @@ class PelangganController extends Controller
             'totalTerbayarRp',
             'totalTunggakanRp',
             'persenCatat',
-            'persenBayar'
+            'persenBayar',
+            'dusunList'
         ));
+    }
+
+    public function store(Request $request)
+    {
+        $user = auth()->user();
+        $allowedRtIds = $user->isAdmin() ? Rt::pluck('id')->toArray() : $user->rts()->pluck('rts.id')->toArray();
+
+        $validated = $request->validate([
+            'no_rekening' => 'required|string|max:30|unique:pelanggans,no_rekening',
+            'nama' => 'required|string|max:150',
+            'dusun' => 'required|string|max:100',
+            'no_rt' => 'nullable|string|max:10',
+            'rt' => 'nullable|string|max:10',
+            'no_rw' => 'nullable|string|max:10',
+            'rw' => 'nullable|string|max:10',
+            'rt_id' => ['required', 'exists:rts,id', \Illuminate\Validation\Rule::in($allowedRtIds)],
+            'no_hp' => 'nullable|string|max:20',
+            'angka_meter_awal' => 'required|integer|min:0',
+            'urutan_rumah' => 'nullable|integer',
+        ]);
+
+        $dusun = trim($validated['dusun']);
+        $no_rt = trim($validated['no_rt'] ?? $validated['rt'] ?? '');
+        $no_rw = trim($validated['no_rw'] ?? $validated['rw'] ?? '');
+        $alamat = Pelanggan::formatAlamat($dusun, $no_rt, $no_rw);
+
+        $pelanggan = Pelanggan::create([
+            'no_rekening' => $validated['no_rekening'],
+            'nama' => $validated['nama'],
+            'dusun' => $dusun,
+            'no_rt' => $no_rt,
+            'no_rw' => $no_rw,
+            'alamat' => $alamat,
+            'rt_id' => $validated['rt_id'],
+            'no_hp' => $validated['no_hp'] ?? null,
+            'angka_meter_awal' => $validated['angka_meter_awal'],
+            'status' => 'aktif',
+            'urutan_rumah' => $validated['urutan_rumah'] ?? (Pelanggan::where('rt_id', $validated['rt_id'])->count() + 1),
+        ]);
+
+        // Inisialisasi catatan meter untuk periode aktif jika ada
+        $activePeriode = PeriodeTagihan::getActivePeriode();
+        if ($activePeriode) {
+            CatatanMeter::firstOrCreate([
+                'pelanggan_id' => $pelanggan->id,
+                'periode_id' => $activePeriode->id,
+            ], [
+                'angka_lalu' => $pelanggan->angka_meter_awal,
+                'angka_ini' => null,
+                'pemakaian' => 0,
+                'biaya_admin' => 2000,
+                'total_tagihan' => 2000,
+                'sisa_tagihan' => 2000,
+                'status_meter' => 'draft',
+                'status_bayar' => 'belum_bayar',
+            ]);
+        }
+
+        \App\Models\ActivityLog::log('TAMBAH_PELANGGAN_PETUGAS', "Petugas {$user->name} mendaftarkan warga: {$pelanggan->nama} ({$pelanggan->no_rekening})");
+
+        return redirect()->route('petugas.warga.index', ['rt_id' => $validated['rt_id']])
+            ->with('success', "Data warga {$pelanggan->nama} berhasil didaftarkan.");
+    }
+
+    public function update(Request $request, Pelanggan $pelanggan)
+    {
+        $user = auth()->user();
+        $allowedRtIds = $user->isAdmin() ? Rt::pluck('id')->toArray() : $user->rts()->pluck('rts.id')->toArray();
+
+        if (!in_array($pelanggan->rt_id, $allowedRtIds)) {
+            abort(403, 'Anda tidak memiliki akses ke wilayah warga ini.');
+        }
+
+        $validated = $request->validate([
+            'no_rekening' => 'required|string|max:30|unique:pelanggans,no_rekening,' . $pelanggan->id,
+            'nama' => 'required|string|max:150',
+            'dusun' => 'required|string|max:100',
+            'no_rt' => 'nullable|string|max:10',
+            'rt' => 'nullable|string|max:10',
+            'no_rw' => 'nullable|string|max:10',
+            'rw' => 'nullable|string|max:10',
+            'rt_id' => ['required', 'exists:rts,id', \Illuminate\Validation\Rule::in($allowedRtIds)],
+            'no_hp' => 'nullable|string|max:20',
+            'status' => 'required|in:aktif,nonaktif',
+            'urutan_rumah' => 'nullable|integer',
+        ]);
+
+        $dusun = trim($validated['dusun']);
+        $no_rt = trim($validated['no_rt'] ?? $validated['rt'] ?? '');
+        $no_rw = trim($validated['no_rw'] ?? $validated['rw'] ?? '');
+        $alamat = Pelanggan::formatAlamat($dusun, $no_rt, $no_rw);
+
+        $pelanggan->update([
+            'no_rekening' => $validated['no_rekening'],
+            'nama' => $validated['nama'],
+            'dusun' => $dusun,
+            'no_rt' => $no_rt,
+            'no_rw' => $no_rw,
+            'alamat' => $alamat,
+            'rt_id' => $validated['rt_id'],
+            'no_hp' => $validated['no_hp'] ?? null,
+            'status' => $validated['status'],
+            'urutan_rumah' => $validated['urutan_rumah'] ?? $pelanggan->urutan_rumah,
+        ]);
+
+        \App\Models\ActivityLog::log('UPDATE_PELANGGAN_PETUGAS', "Petugas {$user->name} memperbarui data warga: {$pelanggan->nama} ({$pelanggan->no_rekening})");
+
+        return redirect()->route('petugas.warga.index', ['rt_id' => $validated['rt_id']])
+            ->with('success', "Data warga {$pelanggan->nama} berhasil diperbarui.");
     }
 
     public function exportCsv(Request $request)
@@ -166,7 +286,10 @@ class PelangganController extends Controller
                 'No. Pelanggan',
                 'Nama Warga',
                 'No. HP',
-                'Alamat',
+                'Dusun',
+                'RT',
+                'RW',
+                'Alamat Lengkap',
                 'Stand Lalu',
                 'Stand Kini',
                 'Pemakaian (m3)',
@@ -201,6 +324,9 @@ class PelangganController extends Controller
                     $warga->no_rekening,
                     $warga->nama,
                     $warga->no_hp ?? '-',
+                    $warga->dusun ?? '-',
+                    $warga->no_rt ?? '-',
+                    $warga->no_rw ?? '-',
                     $warga->alamat,
                     $standLalu,
                     $standKini,
@@ -216,6 +342,9 @@ class PelangganController extends Controller
             fputcsv($file, []);
             fputcsv($file, [
                 'TOTAL',
+                '',
+                '',
+                '',
                 '',
                 '',
                 '',

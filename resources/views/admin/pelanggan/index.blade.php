@@ -66,7 +66,7 @@
                         <th class="p-3.5">No. Pelanggan</th>
                         <th class="p-3.5">Nama Warga</th>
                         <th class="p-3.5">RT Pembina</th>
-                        <th class="p-3.5">Alamat Lengkap</th>
+                        <th class="p-3.5">Alamat (Dusun &amp; RT/RW)</th>
                         <th class="p-3.5 text-center">Meter Awal</th>
                         <th class="p-3.5 text-center">Status</th>
                         <th class="p-3.5 text-center">Aksi</th>
@@ -88,8 +88,16 @@
                                     <p class="text-[10px] text-slate-400 font-normal mt-0.5 font-mono">{{ $p->no_hp }}</p>
                                 @endif
                             </td>
-                            <td class="p-3.5 font-bold text-slate-800 whitespace-nowrap">{{ $p->rt->nama_rt }}</td>
-                            <td class="p-3.5 text-slate-600 font-medium min-w-[160px]">{{ $p->alamat }}</td>
+                            <td class="p-3.5 font-bold text-slate-800 whitespace-nowrap">{{ $p->rt?->nama_rt ?? '-' }}</td>
+                            <td class="p-3.5 min-w-[170px]">
+                                <div class="font-bold text-slate-800">{{ $p->dusun ? 'Dusun ' . preg_replace('/^dusun\s+/i', '', $p->dusun) : ($p->alamat ?? '-') }}</div>
+                                @if($p->no_rt || $p->no_rw)
+                                    <div class="text-[11px] font-mono font-bold text-sky-700 mt-0.5 flex items-center gap-1.5">
+                                        <span class="px-1.5 py-0.2 rounded bg-sky-50 border border-sky-200 text-[10px]">RT {{ $p->no_rt ?? '-' }}</span>
+                                        <span class="px-1.5 py-0.2 rounded bg-sky-50 border border-sky-200 text-[10px]">RW {{ $p->no_rw ?? '-' }}</span>
+                                    </div>
+                                @endif
+                            </td>
                             <td class="p-3.5 text-center font-mono font-bold">{{ $p->angka_meter_awal }}</td>
                             <td class="p-3.5 text-center">
                                 <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black {{ $p->status === 'aktif' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-600 border border-slate-300' }}">
@@ -160,9 +168,35 @@
                             @endforeach
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Alamat (Dusun, RT, RW) <span class="text-rose-500">*</span></label>
-                        <input type="text" name="alamat" required placeholder="Contoh: Dusun Argosari, RT 01 / RW 01, No. 12" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                    <div class="space-y-1.5 p-3.5 bg-slate-50 border-2 border-slate-200 rounded-2xl">
+                        <div class="flex items-center justify-between">
+                            <label class="block text-xs font-extrabold text-slate-800 uppercase tracking-wider">
+                                Alamat Domisili Warga <span class="text-rose-500">*</span>
+                            </label>
+                            <span class="text-[10px] text-slate-500 font-semibold">Dusun, RT &amp; RW Terpisah</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">Dusun <span class="text-rose-500">*</span></label>
+                                <input type="text" name="dusun" required list="dusun-options-admin" placeholder="Misal: Bendrong"
+                                       class="w-full px-3 py-2 border-2 border-slate-300 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">RT <span class="text-rose-500">*</span></label>
+                                <input type="text" name="no_rt" required placeholder="Contoh: 01" maxlength="5"
+                                       class="w-full px-3 py-2 border-2 border-slate-300 rounded-xl text-xs font-mono font-bold focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">RW <span class="text-rose-500">*</span></label>
+                                <input type="text" name="no_rw" required placeholder="Contoh: 01" maxlength="5"
+                                       class="w-full px-3 py-2 border-2 border-slate-300 rounded-xl text-xs font-mono font-bold focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white">
+                            </div>
+                        </div>
+                        <datalist id="dusun-options-admin">
+                            @foreach($dusunList as $dusunName)
+                                <option value="{{ $dusunName }}"></option>
+                            @endforeach
+                        </datalist>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
@@ -211,9 +245,30 @@
                             @endforeach
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Alamat (Dusun, RT, RW)</label>
-                        <input type="text" name="alamat" :value="editPelanggan.alamat" required placeholder="Contoh: Dusun Argosari, RT 01 / RW 01, No. 12" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                    <div class="space-y-1.5 p-3.5 bg-slate-50 border-2 border-slate-200 rounded-2xl">
+                        <div class="flex items-center justify-between">
+                            <label class="block text-xs font-extrabold text-slate-800 uppercase tracking-wider">
+                                Alamat Domisili Warga <span class="text-rose-500">*</span>
+                            </label>
+                            <span class="text-[10px] text-slate-500 font-semibold">Dusun, RT &amp; RW Terpisah</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">Dusun <span class="text-rose-500">*</span></label>
+                                <input type="text" name="dusun" :value="editPelanggan.dusun" required list="dusun-options-admin" placeholder="Misal: Bendrong"
+                                       class="w-full px-3 py-2 border-2 border-slate-300 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">RT <span class="text-rose-500">*</span></label>
+                                <input type="text" name="no_rt" :value="editPelanggan.no_rt" required placeholder="Contoh: 01" maxlength="5"
+                                       class="w-full px-3 py-2 border-2 border-slate-300 rounded-xl text-xs font-mono font-bold focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-700 mb-1">RW <span class="text-rose-500">*</span></label>
+                                <input type="text" name="no_rw" :value="editPelanggan.no_rw" required placeholder="Contoh: 01" maxlength="5"
+                                       class="w-full px-3 py-2 border-2 border-slate-300 rounded-xl text-xs font-mono font-bold focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white">
+                            </div>
+                        </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
