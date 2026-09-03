@@ -96,6 +96,28 @@ class PembayaranController extends Controller
                 abort(403, 'Anda tidak memiliki hak akses untuk mencatat pembayaran warga RT ini.');
             }
         }
+
+        // Cek jika tagihan sudah lunas
+        if ($catatan->sisa_tagihan <= 0 || $catatan->status_bayar === 'lunas') {
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => "Tagihan untuk {$catatan->pelanggan->nama} sudah LUNAS.",
+                ], 422);
+            }
+            return back()->with('error', "Tagihan untuk {$catatan->pelanggan->nama} sudah LUNAS.");
+        }
+
+        // Cek jika jumlah bayar melebihi sisa tagihan
+        if ($validated['jumlah_bayar'] > $catatan->sisa_tagihan) {
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => "Jumlah bayar (Rp " . number_format($validated['jumlah_bayar'], 0, ',', '.') . ") melebihi sisa tagihan (Rp " . number_format($catatan->sisa_tagihan, 0, ',', '.') . ").",
+                ], 422);
+            }
+            return back()->with('error', "Jumlah bayar melebihi sisa tagihan.");
+        }
         
         $pembayaran = Pembayaran::create([
             'no_transaksi' => 'TRX-' . date('Ym') . '-' . str_pad(Pembayaran::count() + 1, 4, '0', STR_PAD_LEFT),
@@ -112,8 +134,9 @@ class PembayaranController extends Controller
         $catatan->total_dibayar = $totalPaid;
         $catatan->sisa_tagihan = max(0, $catatan->total_tagihan - $totalPaid);
 
-        if ($catatan->sisa_tagihan == 0 && $catatan->total_tagihan > 0) {
+        if ($catatan->sisa_tagihan <= 0 && $catatan->total_tagihan > 0) {
             $catatan->status_bayar = 'lunas';
+            $catatan->sisa_tagihan = 0;
         } elseif ($catatan->total_dibayar > 0) {
             $catatan->status_bayar = 'sebagian';
         } else {
@@ -130,6 +153,7 @@ class PembayaranController extends Controller
                 'message' => "Pembayaran {$catatan->pelanggan->nama} sebesar Rp" . number_format($validated['jumlah_bayar'], 0, ',', '.') . " berhasil dicatat.",
                 'catatan' => [
                     'id' => $catatan->id,
+                    'total_tagihan' => $catatan->total_tagihan,
                     'total_dibayar' => $catatan->total_dibayar,
                     'sisa_tagihan' => $catatan->sisa_tagihan,
                     'status_bayar' => $catatan->status_bayar,

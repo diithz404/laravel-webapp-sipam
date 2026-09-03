@@ -209,7 +209,25 @@
                             } else {
                                 $waPhone = $cleanPhone;
                             }
-                            $waMessage = urlencode("Halo Bpk/Ibu {$warga->nama}, info dari Petugas HIPPAM TIRTO MAKMUR mengenai tagihan air periode {$selectedPeriode?->nama_periode}. Total tagihan: Rp" . number_format($catatan?->total_tagihan ?? 0, 0, ',', '.') . " (Status: " . strtoupper($catatan?->status_bayar ?? 'BELUM BAYAR') . ").");
+                            
+                            $waTextWarga = "*INFORMASI TAGIHAN / PEMBAYARAN AIR*\n"
+                                         . "*HIPPAM TIRTO MAKMUR*\n"
+                                         . "----------------------------------------\n"
+                                         . "No. Pelanggan : {$warga->no_rekening}\n"
+                                         . "Nama Warga    : {$warga->nama}\n"
+                                         . "Periode       : " . ($selectedPeriode?->nama_periode ?? '-') . "\n\n"
+                                         . "*Rincian Pemakaian:*\n"
+                                         . "- Stand Lalu : " . ($catatan ? number_format($catatan->angka_lalu) : number_format($warga->angka_meter_awal)) . "\n"
+                                         . "- Stand Kini : " . ($sudahTercatat ? number_format($catatan->angka_ini) : 'Belum Dicatat') . "\n"
+                                         . "- Pemakaian  : " . ($sudahTercatat ? number_format($catatan->pemakaian) . ' m³' : '-') . "\n\n"
+                                         . "*Rincian Biaya:*\n"
+                                         . "- Total Tagihan: Rp" . number_format($catatan?->total_tagihan ?? 0, 0, ',', '.') . "\n"
+                                         . "- Sudah Dibayar: Rp" . number_format($catatan?->total_dibayar ?? 0, 0, ',', '.') . "\n"
+                                         . "- Sisa Tagihan : Rp" . number_format($catatan?->sisa_tagihan ?? 0, 0, ',', '.') . "\n"
+                                         . "- Status Bayar : *" . strtoupper($catatan?->status_bayar ?? 'BELUM BAYAR') . "* " . ($catatan?->status_bayar === 'lunas' ? '✅' : '⏳') . "\n\n"
+                                         . ($catatan ? "Lihat Kwitansi Digital:\n" . route('kwitansi.show', $catatan->id) . "\n\n" : "")
+                                         . "_Pesan otomatis Petugas HIPPAM TIRTO MAKMUR._";
+                            $waMessage = urlencode($waTextWarga);
                         @endphp
                         <tr class="hover:bg-sky-50/50 transition {{ $index % 2 == 0 ? 'bg-white' : 'bg-slate-50/40' }}">
                             {{-- 1. No --}}
