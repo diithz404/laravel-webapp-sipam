@@ -14,9 +14,12 @@ class Rt extends Model
     protected $table = 'rts';
 
     protected $fillable = [
+        'nomor_rt',
         'kode_rt',
         'nama_rt',
+        'dusun',
         'wilayah',
+        'status_data',
         'keterangan',
     ];
 

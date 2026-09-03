@@ -15,16 +15,27 @@ class Pelanggan extends Model
     protected $fillable = [
         'no_rekening',
         'nama',
+        'catatan_nama',
+        'jenis_pelanggan',
+        'sub_kategori',
+        'no_urut_lokal',
         'dusun',
         'no_rt',
         'no_rw',
         'alamat',
         'rt_id',
+        'tarif_id',
         'no_hp',
         'angka_meter_awal',
+        'status_setup',
         'status',
         'urutan_rumah',
     ];
+
+    public function tarif(): BelongsTo
+    {
+        return $this->belongsTo(Tarif::class, 'tarif_id');
+    }
 
     public static function formatAlamat(?string $dusun, ?string $no_rt, ?string $no_rw): string
     {

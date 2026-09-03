@@ -12,41 +12,68 @@ class PetugasSeeder extends Seeder
 {
     /**
      * Run the database seeds according to PRD §3.2.
-     * Membuat 13 akun petugas placeholder (RT 20-34 kecuali RT 23 & 25).
+     * Membuat 31 akun petugas RT aktif untuk Desa Argosari (Pateguhan, Gentong, Bendrong).
+     * RT 15, 23, 25 tidak dibuatkan akun karena status_data = belum_ada_data.
      */
     public function run(): void
     {
-        $this->command->info("👤 Memulai seeding akun Petugas RT Dusun Bendrong...");
+        $this->command->info("👤 Memulai seeding akun Petugas RT Desa Argosari (3 Dusun)...");
 
         // RT kosong yang tidak dibuatkan akun petugas
-        $rtKosong = [23, 25];
-        $rtRange = range(20, 34);
+        $rtKosong = [15, 23, 25];
+        $rtRange = range(1, 34);
 
         $createdCount = 0;
-        $createdEmails = [];
+        $dusunSummary = ['Pateguhan' => [], 'Gentong' => [], 'Bendrong' => []];
 
         DB::beginTransaction();
 
         try {
+            // Pastikan Admin Utama sudah ada
+            User::updateOrCreate(
+                ['email' => 'admin@hippam.id'],
+                [
+                    'name' => 'Administrator HIPPAM',
+                    'phone' => '081234567890',
+                    'role' => 'admin',
+                    'status' => 'active',
+                    'is_active' => true,
+                    'rt_id' => null,
+                    'password' => Hash::make('password'),
+                ]
+            );
+
             foreach ($rtRange as $rtNum) {
-                // Skip RT kosong
+                // Skip RT kosong (15, 23, 25)
                 if (in_array($rtNum, $rtKosong)) {
                     continue;
                 }
 
                 $kodeRt = 'RT ' . str_pad($rtNum, 2, '0', STR_PAD_LEFT);
-                $rt = Rt::where('kode_rt', $kodeRt)->first();
+                $rt = Rt::where('kode_rt', $kodeRt)->orWhere('nomor_rt', $rtNum)->first();
 
                 if (!$rt) {
+                    if ($rtNum >= 1 && $rtNum <= 12) {
+                        $dusun = 'Pateguhan';
+                    } elseif ($rtNum >= 13 && $rtNum <= 19) {
+                        $dusun = 'Gentong';
+                    } else {
+                        $dusun = 'Bendrong';
+                    }
+
                     $rt = Rt::create([
+                        'nomor_rt' => $rtNum,
                         'kode_rt' => $kodeRt,
-                        'nama_rt' => "RT {$rtNum} / RW 05",
-                        'wilayah' => 'Dusun Bendrong',
+                        'nama_rt' => "RT " . str_pad($rtNum, 2, '0', STR_PAD_LEFT),
+                        'dusun' => $dusun,
+                        'wilayah' => "Dusun {$dusun}",
+                        'status_data' => 'lengkap',
                     ]);
                 }
 
+                // Format email: petugas{rt}@hippam.local (tanpa leading zero di email, misal: petugas1, petugas13, petugas20)
                 $email = "petugas{$rtNum}@hippam.local";
-                $name = "Petugas RT {$rtNum}";
+                $name = "Petugas RT " . str_pad($rtNum, 2, '0', STR_PAD_LEFT);
 
                 // Update or create user petugas
                 $user = User::updateOrCreate(
@@ -63,28 +90,34 @@ class PetugasSeeder extends Seeder
                     ]
                 );
 
-                // Sinkronisasi juga ke pivot table rt_petugas
+                // Sinkronisasi pivot table rt_petugas
                 $user->rts()->sync([$rt->id]);
 
                 $createdCount++;
-                $createdEmails[] = $email . " -> RT " . $rtNum;
+                $dusunName = $rt->dusun ?? ($rtNum <= 12 ? 'Pateguhan' : ($rtNum <= 19 ? 'Gentong' : 'Bendrong'));
+                $dusunSummary[$dusunName][] = "{$email} ➔ RT " . str_pad($rtNum, 2, '0', STR_PAD_LEFT);
             }
 
             DB::commit();
 
             $this->command->newLine();
-            $this->command->info("═══════════════════════════════════════════════");
-            $this->command->info("  📊 RINGKASAN SEEDING PETUGAS RT");
-            $this->command->info("═══════════════════════════════════════════════");
-            $this->command->info("  Total akun petugas dibuat/diupdate: {$createdCount}");
-            $this->command->info("  RT tanpa akun (kosong)            : RT " . implode(', RT ', $rtKosong));
+            $this->command->info("═══════════════════════════════════════════════════════════════");
+            $this->command->info("  📊 RINGKASAN SEEDING PETUGAS RT DESA (3 DUSUN)");
+            $this->command->info("═══════════════════════════════════════════════════════════════");
+            $this->command->info("  Total akun petugas dibuat/diupdate : {$createdCount} akun");
+            $this->command->info("  RT tanpa akun (belum ada data)     : RT " . implode(', RT ', $rtKosong));
             $this->command->newLine();
-            $this->command->info("  Daftar akun petugas:");
-            foreach ($createdEmails as $entry) {
-                $this->command->info("    - {$entry} (password: password)");
+
+            foreach ($dusunSummary as $dusun => $list) {
+                $this->command->info("  Dusun {$dusun} (" . count($list) . " Petugas):");
+                foreach ($list as $entry) {
+                    $this->command->info("    - {$entry}");
+                }
+                $this->command->newLine();
             }
-            $this->command->newLine();
-            $this->command->info("✅ PetugasSeeder selesai!");
+
+            $this->command->info("  Password default: 'password' (di-hash)");
+            $this->command->info("✅ PetugasSeeder desa-wide selesai!");
 
         } catch (\Exception $e) {
             DB::rollBack();

@@ -147,6 +147,13 @@ class InputMeterController extends Controller
         $catatan->recalculateBilling();
         $catatan->save();
 
+        if ($catatan->pelanggan && $catatan->pelanggan->status_setup === 'belum_lengkap') {
+            $catatan->pelanggan->update([
+                'status_setup' => 'lengkap',
+                'angka_meter_awal' => $catatan->angka_lalu,
+            ]);
+        }
+
         ActivityLog::log('INPUT_METER', "Pencatatan meter {$catatan->pelanggan->nama}: Lalu {$catatan->angka_lalu} -> Kini {$catatan->angka_ini} (Pemakaian: {$catatan->pemakaian} m3, Tagihan: Rp" . number_format($catatan->total_tagihan, 0, ',', '.') . ")");
 
         if ($request->expectsJson() || $request->ajax()) {
@@ -208,6 +215,12 @@ class InputMeterController extends Controller
                         $catatan->input_at = now();
                         $catatan->recalculateBilling($tarif);
                         $catatan->save();
+                        if ($catatan->pelanggan && $catatan->pelanggan->status_setup === 'belum_lengkap') {
+                            $catatan->pelanggan->update([
+                                'status_setup' => 'lengkap',
+                                'angka_meter_awal' => $catatan->angka_lalu,
+                            ]);
+                        }
                         $savedCount++;
                     }
                 }

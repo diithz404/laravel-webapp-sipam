@@ -31,7 +31,7 @@
             <div>
                 <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Petugas RT Terdaftar</span>
                 <span class="text-2xl font-black text-teal-700 font-mono mt-1 block">{{ $totalPetugas }} Akun</span>
-                <span class="text-[11px] text-slate-400 font-medium">13 RT aktif di Dusun Bendrong</span>
+                <span class="text-[11px] text-slate-400 font-medium">31 RT aktif di 3 Dusun (Pateguhan, Gentong, Bendrong)</span>
             </div>
             <div class="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shrink-0">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -70,7 +70,7 @@
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
                 <h3 class="text-base sm:text-lg font-black text-slate-900">Kelola Akun Petugas &amp; Admin</h3>
-                <p class="text-xs text-slate-500 mt-0.5 font-medium">Lengkapi kontak asli petugas RT, atur wilayah tugas, atau reset kata sandi</p>
+                <p class="text-xs text-slate-500 mt-0.5 font-medium">Lengkapi kontak asli petugas RT, atur wilayah tugas 3 dusun, atau reset kata sandi</p>
             </div>
 
             <div class="flex items-center gap-2.5 flex-wrap">
@@ -83,7 +83,7 @@
         </div>
 
         <!-- Filter Form -->
-        <form method="GET" action="{{ route('admin.users.index') }}" class="grid grid-cols-1 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-slate-100">
+        <form method="GET" action="{{ route('admin.users.index') }}" class="grid grid-cols-1 sm:grid-cols-5 gap-3 mt-4 pt-4 border-t border-slate-100">
             <div>
                 <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Cari Pengguna</label>
                 <input type="text" name="search" value="{{ $search }}" placeholder="Nama / Email / No HP..." 
@@ -100,12 +100,22 @@
             </div>
 
             <div>
+                <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Dusun</label>
+                <select name="dusun" class="w-full px-3.5 py-2 border-2 border-slate-200 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-sky-500 focus:outline-none" onchange="this.form.submit()">
+                    <option value="">Semua Dusun</option>
+                    @foreach($dusunList as $d)
+                        <option value="{{ $d }}" {{ ($dusunFilter ?? '') === $d ? 'selected' : '' }}>Dusun {{ $d }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div>
                 <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Wilayah RT</label>
                 <select name="rt_id" class="w-full px-3.5 py-2 border-2 border-slate-200 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-sky-500 focus:outline-none" onchange="this.form.submit()">
-                    <option value="">Semua RT</option>
+                    <option value="">Semua RT (01 - 34)</option>
                     @foreach($rts as $rt)
                         <option value="{{ $rt->id }}" {{ $rtFilter == $rt->id ? 'selected' : '' }}>
-                            {{ $rt->nama_rt }} ({{ $rt->pelanggans_count }} Warga)
+                            {{ $rt->nama_rt }} ({{ $rt->dusun ?? $rt->wilayah }})
                         </option>
                     @endforeach
                 </select>
@@ -113,9 +123,9 @@
 
             <div class="flex items-end gap-2">
                 <button type="submit" class="flex-1 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition">
-                    Terapkan Filter
+                    Terapkan
                 </button>
-                @if($search || $roleFilter || $rtFilter)
+                @if($search || $roleFilter || $rtFilter || ($dusunFilter ?? ''))
                     <a href="{{ route('admin.users.index') }}" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs font-bold transition">
                         Reset
                     </a>

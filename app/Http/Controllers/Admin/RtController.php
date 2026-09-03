@@ -14,12 +14,16 @@ class RtController extends Controller
     {
         $rts = Rt::withCount('pelanggans')
             ->with('petugas')
-            ->orderBy('kode_rt')
+            ->orderByRaw('COALESCE(nomor_rt, CAST(SUBSTRING(kode_rt, 4) AS UNSIGNED)), id ASC')
             ->get();
 
         $allPetugas = User::where('role', 'petugas')->where('status', 'active')->get();
 
-        return view('admin.rt.index', compact('rts', 'allPetugas'));
+        $rtsByDusun = $rts->groupBy(function ($rt) {
+            return $rt->dusun ?? (preg_match('/Pateguhan/i', $rt->wilayah) ? 'Pateguhan' : (preg_match('/Gentong/i', $rt->wilayah) ? 'Gentong' : 'Bendrong'));
+        });
+
+        return view('admin.rt.index', compact('rts', 'allPetugas', 'rtsByDusun'));
     }
 
     public function store(Request $request)

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->foreignId('rt_id')->constrained('rts')->onDelete('restrict');
             $table->string('no_hp')->nullable();
-            $table->integer('angka_meter_awal')->default(0);
+            $table->integer('angka_meter_awal')->nullable();
             $table->string('status')->default('aktif'); // 'aktif', 'nonaktif'
             $table->integer('urutan_rumah')->default(1);
             $table->timestamps();

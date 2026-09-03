@@ -15,6 +15,7 @@ class UserController extends Controller
     {
         $roleFilter = $request->query('role');
         $rtFilter = $request->query('rt_id');
+        $dusunFilter = $request->query('dusun');
         $search = $request->query('search');
 
         $query = User::with(['rts' => function ($q) {
@@ -25,6 +26,13 @@ class UserController extends Controller
 
         if ($roleFilter) {
             $query->where('role', $roleFilter);
+        }
+
+        if ($dusunFilter) {
+            $query->where(function ($q) use ($dusunFilter) {
+                $q->whereHas('rt', fn($rq) => $rq->where('dusun', $dusunFilter)->orWhere('wilayah', 'like', "%{$dusunFilter}%"))
+                  ->orWhereHas('rts', fn($rq) => $rq->where('dusun', $dusunFilter)->orWhere('wilayah', 'like', "%{$dusunFilter}%"));
+            });
         }
 
         if ($rtFilter) {
@@ -44,6 +52,7 @@ class UserController extends Controller
 
         $users = $query->orderBy('role')->orderBy('name')->get();
         $rts = Rt::withCount('pelanggans')->orderBy('kode_rt')->get();
+        $dusunList = ['Pateguhan', 'Gentong', 'Bendrong'];
 
         // Statistics
         $totalAdmin = User::where('role', 'admin')->count();
@@ -55,6 +64,8 @@ class UserController extends Controller
             'rts',
             'roleFilter',
             'rtFilter',
+            'dusunFilter',
+            'dusunList',
             'search',
             'totalAdmin',
             'totalPetugas',
