@@ -70,32 +70,51 @@
         <span x-text="toastMsg"></span>
     </div>
 
-    {{-- Header & RT Selector --}}
-    <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-slate-200 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    {{-- Header & RT Selector Card --}}
+    <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-slate-200 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h2 class="text-base font-extrabold text-slate-900">Pencatatan Meter Air Warga</h2>
+            <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="text-base font-extrabold text-slate-900">Pencatatan Meter Air Warga</h2>
+                <span class="text-[10px] font-bold bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded-full">
+                    Periode: {{ $activePeriode?->nama_periode ?? 'Belum ada periode' }}
+                </span>
+                @if(auth()->user()->isAdmin())
+                    <span class="text-[10px] font-black uppercase tracking-wider bg-indigo-100 text-indigo-800 border border-indigo-300 px-2 py-0.5 rounded-full">
+                        Super Admin
+                    </span>
+                @endif
+            </div>
             <p class="text-xs text-slate-500 mt-0.5 font-medium">
-                Periode Aktif: <span class="font-bold text-sky-700">{{ $activePeriode?->nama_periode ?? 'Belum ada periode aktif' }}</span>
+                Wilayah Terpilih: <span class="font-extrabold text-sky-700">{{ $selectedRt?->nama_rt }} (Dusun {{ $selectedRt?->dusun ?? $selectedRt?->wilayah }})</span> &bull; <span class="font-semibold text-slate-700">{{ $pelanggans->count() }} Rumah Warga</span>
             </p>
         </div>
 
-        {{-- RT Filter --}}
+        {{-- RT Selector Dropdown (Same as Kasir & Data Warga) --}}
         @if($userRts->count() > 1)
-        <div class="flex flex-wrap gap-1.5">
-            @foreach($userRts as $rt)
-                <a href="{{ route('petugas.input-meter.index', ['rt_id' => $rt->id]) }}"
-                   class="px-3.5 py-2 rounded-xl text-xs font-bold transition border-2
-                          {{ $selectedRt?->id == $rt->id
-                              ? 'bg-sky-600 text-white border-sky-700 shadow-md'
-                              : 'bg-slate-50 text-slate-700 border-slate-300 hover:border-sky-400 hover:text-sky-700' }}">
-                    {{ $rt->nama_rt }}
-                </a>
-            @endforeach
-        </div>
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+                <select name="rt_id" onchange="window.location.href='{{ route('petugas.input-meter.index') }}?rt_id=' + this.value"
+                        class="w-full sm:w-auto border-2 border-slate-300 rounded-xl px-3.5 py-2 text-xs font-bold focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none bg-slate-50 shadow-xs">
+                    @if(isset($rtsByDusun) && $rtsByDusun->isNotEmpty())
+                        @foreach($rtsByDusun as $dusunName => $rts)
+                            <optgroup label="Dusun {{ $dusunName }} ({{ $rts->count() }} RT)">
+                                @foreach($rts as $rt)
+                                    <option value="{{ $rt->id }}" {{ $selectedRt?->id == $rt->id ? 'selected' : '' }}>
+                                        {{ $rt->nama_rt }} (Dusun {{ $dusunName }})
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    @else
+                        @foreach($userRts as $rt)
+                            <option value="{{ $rt->id }}" {{ $selectedRt?->id == $rt->id ? 'selected' : '' }}>{{ $rt->nama_rt }}</option>
+                        @endforeach
+                    @endif
+                </select>
+            </div>
         @else
-            <span class="px-3.5 py-2 bg-sky-50 text-sky-800 border-2 border-sky-200 rounded-xl text-xs font-black">
-                Wilayah Binaan: {{ $selectedRt?->nama_rt ?? 'Semua RT' }}
-            </span>
+            <div class="px-4 py-2 bg-slate-50 rounded-xl text-xs font-black text-slate-800 border border-slate-200">
+                Wilayah Binaan: <span class="text-sky-700">{{ $selectedRt?->nama_rt }}</span>
+            </div>
         @endif
     </div>
 

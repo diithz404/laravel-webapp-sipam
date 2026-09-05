@@ -115,9 +115,53 @@ class DesaPelangganAndPetugasTest extends TestCase
         $responseSuccess = $this->actingAs($petugas1)->get(route('petugas.warga.index', ['rt_id' => $rt1->id]));
         $responseSuccess->assertStatus(200);
 
-        // 3. Admin can access all RTs without 403
+        // 3. Admin can access all RTs without 403 in admin panel
         $admin = User::where('role', 'admin')->first();
         $adminResponse = $this->actingAs($admin)->get(route('admin.pelanggan.index', ['rt_id' => $rt5->id]));
         $adminResponse->assertStatus(200);
+
+        // 4. Admin can access Petugas Dashboard for any RT (e.g. RT 01, RT 15, RT 25)
+        $rt15 = Rt::where('nomor_rt', 15)->first();
+        $rt25 = Rt::where('nomor_rt', 25)->first();
+
+        $adminPetugasDashboard1 = $this->actingAs($admin)->get(route('petugas.dashboard', ['rt_id' => $rt1->id]));
+        $adminPetugasDashboard1->assertStatus(200);
+        $adminPetugasDashboard1->assertSee('Dusun Pateguhan');
+
+        $adminPetugasDashboard15 = $this->actingAs($admin)->get(route('petugas.dashboard', ['rt_id' => $rt15->id]));
+        $adminPetugasDashboard15->assertStatus(200);
+        $adminPetugasDashboard15->assertSee('Dusun Gentong');
+
+        $adminPetugasDashboard25 = $this->actingAs($admin)->get(route('petugas.dashboard', ['rt_id' => $rt25->id]));
+        $adminPetugasDashboard25->assertStatus(200);
+        $adminPetugasDashboard25->assertSee('Dusun Bendrong');
+
+        // 5. Admin can access Petugas Input Meter for any RT
+        $adminInputMeter15 = $this->actingAs($admin)->get(route('petugas.input-meter.index', ['rt_id' => $rt15->id]));
+        $adminInputMeter15->assertStatus(200);
+        $adminInputMeter15->assertSee('RT 15');
+        $adminInputMeter15->assertSee('Dusun Gentong');
+    }
+
+    public function test_uniform_rt_selector_dropdown_across_petugas_panel()
+    {
+        $admin = User::where('role', 'admin')->first();
+
+        $routes = [
+            route('petugas.dashboard'),
+            route('petugas.input-meter.index'),
+            route('petugas.pembayaran.index'),
+            route('petugas.warga.index'),
+        ];
+
+        foreach ($routes as $url) {
+            $resp = $this->actingAs($admin)->get($url);
+            $resp->assertStatus(200);
+            $resp->assertSee('<select name="rt_id"', false);
+            $resp->assertSee('Dusun Pateguhan (12 RT)');
+            $resp->assertSee('Dusun Gentong (7 RT)');
+            $resp->assertSee('Dusun Bendrong (15 RT)');
+        }
     }
 }
+

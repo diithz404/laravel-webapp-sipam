@@ -8,31 +8,44 @@
     <!-- Officer Profile & RT Selector -->
     <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-slate-200 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3.5">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 via-cyan-600 to-teal-500 text-white font-black text-xl flex items-center justify-center shadow-md">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 via-cyan-600 to-teal-500 text-white font-black text-xl flex items-center justify-center shadow-md shrink-0">
                 {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
             </div>
             <div>
                 <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Petugas Bertugas:</p>
                 <h2 class="text-base font-black text-slate-900 leading-tight">{{ auth()->user()->name }}</h2>
-                <div class="flex items-center gap-2 mt-1">
+                <div class="flex items-center gap-2 mt-1 flex-wrap">
                     <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black bg-sky-100 text-sky-800 border border-sky-300">
                         Periode: {{ $activePeriode?->nama_periode }}
                     </span>
                     <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-300">
-                        {{ $selectedRt?->nama_rt }}
+                        {{ $selectedRt?->nama_rt }} ({{ $selectedRt?->dusun ?? $selectedRt?->wilayah }})
                     </span>
                 </div>
             </div>
         </div>
 
+        {{-- RT Selector Dropdown (Same as Kasir & Data Warga) --}}
         @if($userRts->count() > 1)
-            <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
-                @foreach($userRts as $rt)
-                    <a href="{{ route('petugas.dashboard', ['rt_id' => $rt->id]) }}" 
-                       class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition {{ $selectedRt?->id == $rt->id ? 'bg-sky-600 text-white shadow-sm' : 'text-slate-700 hover:text-slate-900' }}">
-                        {{ $rt->nama_rt }}
-                    </a>
-                @endforeach
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+                <select name="rt_id" onchange="window.location.href='{{ route('petugas.dashboard') }}?rt_id=' + this.value"
+                        class="w-full sm:w-auto border-2 border-slate-300 rounded-xl px-3.5 py-2 text-xs font-bold focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none bg-slate-50 shadow-xs">
+                    @if(isset($rtsByDusun) && $rtsByDusun->isNotEmpty())
+                        @foreach($rtsByDusun as $dusunName => $rts)
+                            <optgroup label="Dusun {{ $dusunName }} ({{ $rts->count() }} RT)">
+                                @foreach($rts as $rt)
+                                    <option value="{{ $rt->id }}" {{ $selectedRt?->id == $rt->id ? 'selected' : '' }}>
+                                        {{ $rt->nama_rt }} (Dusun {{ $dusunName }})
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    @else
+                        @foreach($userRts as $rt)
+                            <option value="{{ $rt->id }}" {{ $selectedRt?->id == $rt->id ? 'selected' : '' }}>{{ $rt->nama_rt }}</option>
+                        @endforeach
+                    @endif
+                </select>
             </div>
         @else
             <div class="px-4 py-2 bg-slate-50 rounded-xl text-xs font-black text-slate-800 border border-slate-200">

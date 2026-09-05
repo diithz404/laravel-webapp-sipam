@@ -231,10 +231,22 @@
             @if($userRts->count() > 1)
             <select name="rt_id" onchange="this.form.submit()"
                     class="border-2 border-slate-300 rounded-xl px-3 py-2 text-xs font-bold focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none bg-slate-50">
-                <option value="">Semua RT Binaan</option>
-                @foreach($userRts as $rt)
-                    <option value="{{ $rt->id }}" {{ $rtId == $rt->id ? 'selected' : '' }}>{{ $rt->nama_rt }}</option>
-                @endforeach
+                <option value="">Semua RT Binaan (34 RT)</option>
+                @if(isset($rtsByDusun) && $rtsByDusun->isNotEmpty())
+                    @foreach($rtsByDusun as $dusunName => $rts)
+                        <optgroup label="Dusun {{ $dusunName }} ({{ $rts->count() }} RT)">
+                            @foreach($rts as $rt)
+                                <option value="{{ $rt->id }}" {{ $rtId == $rt->id ? 'selected' : '' }}>
+                                    {{ $rt->nama_rt }} (Dusun {{ $dusunName }})
+                                </option>
+                            @endforeach
+                        </optgroup>
+                    @endforeach
+                @else
+                    @foreach($userRts as $rt)
+                        <option value="{{ $rt->id }}" {{ $rtId == $rt->id ? 'selected' : '' }}>{{ $rt->nama_rt }}</option>
+                    @endforeach
+                @endif
             </select>
             @else
                 <input type="hidden" name="rt_id" value="{{ $rtId }}">

@@ -16,13 +16,15 @@ class InputMeterController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
+        $rtQueryOrder = 'COALESCE(nomor_rt, CAST(SUBSTRING(kode_rt, 4) AS UNSIGNED)), id ASC';
+
         if ($user->isPetugas()) {
-            $userRts = $user->rts()->orderBy('kode_rt')->get();
+            $userRts = $user->rts()->orderByRaw($rtQueryOrder)->get();
             if ($userRts->isEmpty() && $user->rt_id) {
                 $userRts = Rt::where('id', $user->rt_id)->get();
             }
         } else {
-            $userRts = Rt::orderBy('kode_rt')->get();
+            $userRts = Rt::orderByRaw($rtQueryOrder)->get();
         }
 
         $activePeriode = PeriodeTagihan::getActivePeriode() ?? PeriodeTagihan::latest('id')->first();
@@ -33,6 +35,44 @@ class InputMeterController extends Controller
         }
 
         $selectedRt = $userRts->firstWhere('id', $selectedRtId) ?? $userRts->first();
+
+        // Group RTs by Dusun
+        $rtsByDusun = $userRts->groupBy(function ($rt) {
+            return $rt->dusun ?? (preg_match('/Pateguhan/i', $rt->wilayah) ? 'Pateguhan' : (preg_match('/Gentong/i', $rt->wilayah) ? 'Gentong' : 'Bendrong'));
+        });
+
+        // Compute RT progress map for the selector UI
+        $rtProgressMap = [];
+        if ($userRts->count() > 1 && $activePeriode) {
+            $rtStats = CatatanMeter::join('pelanggans', 'catatan_meters.pelanggan_id', '=', 'pelanggans.id')
+                ->where('catatan_meters.periode_id', $activePeriode->id)
+                ->whereIn('pelanggans.rt_id', $userRts->pluck('id'))
+                ->groupBy('pelanggans.rt_id')
+                ->selectRaw('
+                    pelanggans.rt_id,
+                    COUNT(pelanggans.id) as total_warga,
+                    COUNT(CASE WHEN catatan_meters.angka_ini IS NOT NULL THEN 1 END) as tercatat
+                ')
+                ->get()
+                ->keyBy('rt_id');
+
+            $pelangganCounts = Pelanggan::whereIn('rt_id', $userRts->pluck('id'))
+                ->where('status', 'aktif')
+                ->groupBy('rt_id')
+                ->selectRaw('rt_id, COUNT(*) as total')
+                ->pluck('total', 'rt_id');
+
+            foreach ($userRts as $rt) {
+                $stat = $rtStats->get($rt->id);
+                $totalW = $pelangganCounts->get($rt->id, 0);
+                $tercatatW = $stat?->tercatat ?? 0;
+                $rtProgressMap[$rt->id] = [
+                    'total' => $totalW,
+                    'tercatat' => $tercatatW,
+                    'is_complete' => $totalW > 0 && $tercatatW >= $totalW,
+                ];
+            }
+        }
 
         $activeTarif = Tarif::getActiveTarif() ?? new Tarif([
             'tarif_standar' => 350,
@@ -101,6 +141,8 @@ class InputMeterController extends Controller
 
         return view('petugas.input-meter.index', compact(
             'userRts',
+            'rtsByDusun',
+            'rtProgressMap',
             'selectedRt',
             'activePeriode',
             'pelanggans',

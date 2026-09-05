@@ -16,14 +16,20 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
+        $rtQueryOrder = 'COALESCE(nomor_rt, CAST(SUBSTRING(kode_rt, 4) AS UNSIGNED)), id ASC';
+
         if ($user->isPetugas()) {
-            $userRts = $user->rts()->orderBy('kode_rt')->get();
+            $userRts = $user->rts()->orderByRaw($rtQueryOrder)->get();
             if ($userRts->isEmpty() && $user->rt_id) {
                 $userRts = Rt::where('id', $user->rt_id)->get();
             }
         } else {
-            $userRts = Rt::orderBy('kode_rt')->get();
+            $userRts = Rt::orderByRaw($rtQueryOrder)->get();
         }
+
+        $rtsByDusun = $userRts->groupBy(function ($rt) {
+            return $rt->dusun ?? (preg_match('/Pateguhan/i', $rt->wilayah) ? 'Pateguhan' : (preg_match('/Gentong/i', $rt->wilayah) ? 'Gentong' : 'Bendrong'));
+        });
 
         $activePeriode = PeriodeTagihan::getActivePeriode() ?? PeriodeTagihan::latest('id')->first();
         $periodeId = $request->query('periode_id', $activePeriode?->id);
@@ -66,6 +72,7 @@ class PembayaranController extends Controller
 
         return view('petugas.pembayaran.index', compact(
             'userRts',
+            'rtsByDusun',
             'rtId',
             'status',
             'search',
