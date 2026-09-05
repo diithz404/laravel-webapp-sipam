@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'active',
                 'is_active' => true,
                 'rt_id' => null,
-                'password' => Hash::make('password'),
+                'password' => Hash::make('hippam'),
             ]
         );
 

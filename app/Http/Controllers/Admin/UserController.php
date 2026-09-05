@@ -153,7 +153,7 @@ class UserController extends Controller
 
     public function resetPassword(Request $request, User $user)
     {
-        $newPassword = $request->input('custom_password') ?: 'password';
+        $newPassword = $request->input('custom_password') ?: 'hippam';
 
         $user->update([
             'password' => Hash::make($newPassword),

@@ -12,17 +12,14 @@ class PetugasSeeder extends Seeder
 {
     /**
      * Run the database seeds according to PRD §3.2.
-     * Membuat 31 akun petugas RT aktif untuk Desa Argosari (Pateguhan, Gentong, Bendrong).
-     * RT 15, 23, 25 tidak dibuatkan akun karena status_data = belum_ada_data.
+     * Membuat 34 akun petugas RT aktif untuk Desa Argosari (Pateguhan, Gentong, Bendrong).
+     * Semua 34 RT sudah memiliki data pelanggan dan dibuatkan akun petugas.
      */
     public function run(): void
     {
-        $this->command->info("👤 Memulai seeding akun Petugas RT Desa Argosari (3 Dusun)...");
+        $this->command->info("👤 Memulai seeding 34 akun Petugas RT Desa Argosari (3 Dusun)...");
 
-        // RT kosong yang tidak dibuatkan akun petugas
-        $rtKosong = [15, 23, 25];
         $rtRange = range(1, 34);
-
         $createdCount = 0;
         $dusunSummary = ['Pateguhan' => [], 'Gentong' => [], 'Bendrong' => []];
 
@@ -39,16 +36,11 @@ class PetugasSeeder extends Seeder
                     'status' => 'active',
                     'is_active' => true,
                     'rt_id' => null,
-                    'password' => Hash::make('password'),
+                    'password' => Hash::make('hippam'),
                 ]
             );
 
             foreach ($rtRange as $rtNum) {
-                // Skip RT kosong (15, 23, 25)
-                if (in_array($rtNum, $rtKosong)) {
-                    continue;
-                }
-
                 $kodeRt = 'RT ' . str_pad($rtNum, 2, '0', STR_PAD_LEFT);
                 $rt = Rt::where('kode_rt', $kodeRt)->orWhere('nomor_rt', $rtNum)->first();
 
@@ -85,7 +77,7 @@ class PetugasSeeder extends Seeder
                         'phone' => null,
                         'status' => 'active',
                         'is_active' => true,
-                        'password' => Hash::make('password'),
+                        'password' => Hash::make('hippam'),
                         'password_changed_at' => null, // flag: belum ganti password default
                     ]
                 );
@@ -104,8 +96,7 @@ class PetugasSeeder extends Seeder
             $this->command->info("═══════════════════════════════════════════════════════════════");
             $this->command->info("  📊 RINGKASAN SEEDING PETUGAS RT DESA (3 DUSUN)");
             $this->command->info("═══════════════════════════════════════════════════════════════");
-            $this->command->info("  Total akun petugas dibuat/diupdate : {$createdCount} akun");
-            $this->command->info("  RT tanpa akun (belum ada data)     : RT " . implode(', RT ', $rtKosong));
+            $this->command->info("  Total akun petugas dibuat/diupdate : {$createdCount} akun (Lengkap RT 01 - RT 34)");
             $this->command->newLine();
 
             foreach ($dusunSummary as $dusun => $list) {
@@ -116,7 +107,7 @@ class PetugasSeeder extends Seeder
                 $this->command->newLine();
             }
 
-            $this->command->info("  Password default: 'password' (di-hash)");
+            $this->command->info("  Password default: 'hippam' (di-hash)");
             $this->command->info("✅ PetugasSeeder desa-wide selesai!");
 
         } catch (\Exception $e) {

@@ -26,7 +26,11 @@ class DesaPelangganAndPetugasTest extends TestCase
         $bendrongCount = Rt::where('dusun', 'Bendrong')->orWhere('wilayah', 'like', '%Bendrong%')->count();
         $this->assertEquals(15, $bendrongCount); // RT 20-34
 
-        // Check empty RTs (15, 23, 25)
+        // All 34 RTs are now filled with status_data = lengkap
+        $incompleteRts = Rt::where('status_data', '!=', 'lengkap')->count();
+        $this->assertEquals(0, $incompleteRts, 'Semua 34 RT harus berstatus lengkap');
+
+        // Check RT 15, 23, 25 are present and have status 'lengkap'
         $rt15 = Rt::where('kode_rt', 'RT 15')->orWhere('nomor_rt', 15)->first();
         $rt23 = Rt::where('kode_rt', 'RT 23')->orWhere('nomor_rt', 23)->first();
         $rt25 = Rt::where('kode_rt', 'RT 25')->orWhere('nomor_rt', 25)->first();
@@ -35,33 +39,37 @@ class DesaPelangganAndPetugasTest extends TestCase
         $this->assertNotNull($rt23);
         $this->assertNotNull($rt25);
 
-        $this->assertEquals('belum_ada_data', $rt15->status_data);
-        $this->assertEquals('belum_ada_data', $rt23->status_data);
-        $this->assertEquals('belum_ada_data', $rt25->status_data);
+        $this->assertEquals('lengkap', $rt15->status_data);
+        $this->assertEquals('lengkap', $rt23->status_data);
+        $this->assertEquals('lengkap', $rt25->status_data);
     }
 
-    public function test_petugas_accounts_created_for_31_active_rts()
+    public function test_petugas_accounts_created_for_all_34_rts()
     {
-        // 31 Petugas + 1 Admin = 32 users minimum
+        // 34 Petugas + 1 Admin = 35 users minimum
         $petugasUsers = User::where('role', 'petugas')->get();
-        $this->assertGreaterThanOrEqual(31, $petugasUsers->count());
+        $this->assertGreaterThanOrEqual(34, $petugasUsers->count());
 
-        // Check sample petugas from each of the 3 Dusun
+        // Check sample petugas from each of the 3 Dusun + newly active RTs
         $petugas1 = User::where('email', 'petugas1@hippam.local')->first(); // Dusun Pateguhan
         $petugas13 = User::where('email', 'petugas13@hippam.local')->first(); // Dusun Gentong
         $petugas20 = User::where('email', 'petugas20@hippam.local')->first(); // Dusun Bendrong
+
+        $petugas15 = User::where('email', 'petugas15@hippam.local')->first(); // RT 15 (Gentong)
+        $petugas23 = User::where('email', 'petugas23@hippam.local')->first(); // RT 23 (Bendrong)
+        $petugas25 = User::where('email', 'petugas25@hippam.local')->first(); // RT 25 (Bendrong)
 
         $this->assertNotNull($petugas1, 'Petugas RT 01 (Pateguhan) harus ada');
         $this->assertNotNull($petugas13, 'Petugas RT 13 (Gentong) harus ada');
         $this->assertNotNull($petugas20, 'Petugas RT 20 (Bendrong) harus ada');
 
-        // Check empty RTs do not have petugas accounts
-        $this->assertNull(User::where('email', 'petugas15@hippam.local')->first());
-        $this->assertNull(User::where('email', 'petugas23@hippam.local')->first());
-        $this->assertNull(User::where('email', 'petugas25@hippam.local')->first());
+        $this->assertNotNull($petugas15, 'Petugas RT 15 (Gentong) harus ada');
+        $this->assertNotNull($petugas23, 'Petugas RT 23 (Bendrong) harus ada');
+        $this->assertNotNull($petugas25, 'Petugas RT 25 (Bendrong) harus ada');
 
         // Password hash check
-        $this->assertTrue(Hash::check('password', $petugas1->password));
+        $this->assertTrue(Hash::check('hippam', $petugas1->password));
+        $this->assertTrue(Hash::check('hippam', $petugas15->password));
     }
 
     public function test_customer_data_anomalies_and_nomor_pelanggan_format()

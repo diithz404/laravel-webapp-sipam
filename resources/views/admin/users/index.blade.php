@@ -11,7 +11,7 @@
     selectedUser: null,
     editUser: { id: '', name: '', email: '', phone: '', role: 'petugas', status: 'active', rts: [] },
     editRtIds: [],
-    customPassword: 'password',
+    customPassword: 'hippam',
     openEdit(user) {
         this.editUser = { ...user };
         this.editRtIds = user.rts ? user.rts.map(r => r.id) : (user.rt_id ? [user.rt_id] : []);
@@ -19,7 +19,7 @@
     },
     openReset(user) {
         this.selectedUser = user;
-        this.customPassword = 'password';
+        this.customPassword = 'hippam';
         this.resetModal = true;
     }
 }">
@@ -31,7 +31,7 @@
             <div>
                 <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Petugas RT Terdaftar</span>
                 <span class="text-2xl font-black text-teal-700 font-mono mt-1 block">{{ $totalPetugas }} Akun</span>
-                <span class="text-[11px] text-slate-400 font-medium">31 RT aktif di 3 Dusun (Pateguhan, Gentong, Bendrong)</span>
+                <span class="text-[11px] text-slate-400 font-medium">34 RT aktif di 3 Dusun (Pateguhan, Gentong, Bendrong)</span>
             </div>
             <div class="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shrink-0">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -209,7 +209,7 @@
                             <!-- Keamanan Akun / Status Password -->
                             <td class="p-3.5 text-center">
                                 @if($user->isDefaultPassword())
-                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300" title="Petugas belum pernah mengganti password bawaan ('password')">
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300" title="Petugas belum pernah mengganti password bawaan ('hippam')">
                                         <span>⚠️ Sandi Default</span>
                                     </span>
                                 @else
@@ -437,7 +437,7 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Kata Sandi Baru</label>
                         <input type="text" name="custom_password" x-model="customPassword" required
                                class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-xl text-sm font-mono font-black focus:ring-2 focus:ring-amber-500 focus:outline-none">
-                        <p class="text-[11px] text-slate-400 mt-1">Default: <span class="font-mono font-bold text-slate-700">password</span> (atau tentukan password baru yang mudah diingat).</p>
+                        <p class="text-[11px] text-slate-400 mt-1">Default: <span class="font-mono font-bold text-slate-700">hippam</span> (atau tentukan password baru yang mudah diingat).</p>
                     </div>
 
                     <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-200">

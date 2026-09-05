@@ -111,14 +111,12 @@ class CustomerSeeder extends Seeder
         }
 
         // ====================================================================
-        // 2. Buat Master RT 01 s/d RT 34 Desa-Wide (3 Dusun)
+        // 2. Buat Master RT 01 s/d RT 34 Desa-Wide (3 Dusun) - 100% Lengkap
         // ====================================================================
-        $rtKosong = [15, 23, 25]; // RT tanpa data pelanggan
         $rtMap = []; // rt_number => rt_id
 
         for ($rtNum = 1; $rtNum <= 34; $rtNum++) {
             $kodeRt = 'RT ' . str_pad($rtNum, 2, '0', STR_PAD_LEFT);
-            $isKosong = in_array($rtNum, $rtKosong);
 
             // Tentukan dusun berdasarkan rentang RT desa
             if ($rtNum >= 1 && $rtNum <= 12) {
@@ -141,18 +139,15 @@ class CustomerSeeder extends Seeder
                     'nama_rt' => $namaRt,
                     'dusun' => $dusun,
                     'wilayah' => $wilayah,
-                    'status_data' => $isKosong ? 'belum_ada_data' : 'lengkap',
-                    'keterangan' => $isKosong
-                        ? 'Belum ada data pelanggan — wilayah tercatat di master desa'
-                        : "Wilayah {$wilayah}",
+                    'status_data' => 'lengkap',
+                    'keterangan' => "Wilayah {$wilayah}",
                 ]
             );
 
             $rtMap[$rtNum] = $rt->id;
         }
 
-        $this->command->info("✅ 34 RT berhasil disiapkan (Pateguhan RT 01-12, Gentong RT 13-19, Bendrong RT 20-34)");
-        $this->command->info("   RT belum ada data: RT " . implode(', RT ', $rtKosong));
+        $this->command->info("✅ Seluruh 34 RT berhasil disiapkan (Pateguhan RT 01-12, Gentong RT 13-19, Bendrong RT 20-34) dengan status LENGKAP.");
 
         // ====================================================================
         // 3. Import Data Pelanggan dari JSON

@@ -1,0 +1,5666 @@
+[
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 1,
+        "nama": "Aan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 2,
+        "nama": "Resmiati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 3,
+        "nama": "Taram",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 4,
+        "nama": "Suhariono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 5,
+        "nama": "Dwi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 6,
+        "nama": "Widodo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 7,
+        "nama": "Senan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 8,
+        "nama": "Tukah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 9,
+        "nama": "Mu'in",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 10,
+        "nama": "Pras",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 11,
+        "nama": "Syafi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 12,
+        "nama": "Langgar",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 13,
+        "nama": "Siti/Andik",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 14,
+        "nama": "Nanang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 15,
+        "nama": "Rois",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 1,
+        "no_urut": 16,
+        "nama": "Nurjayadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 1,
+        "nama": "Mustakim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 2,
+        "nama": "Imam wahyudi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 3,
+        "nama": "Masjid",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 4,
+        "nama": "Polindes",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 5,
+        "nama": "Slamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 6,
+        "nama": "Kholik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 7,
+        "nama": "Roni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 8,
+        "nama": "Bawon",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 9,
+        "nama": "Basori",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 10,
+        "nama": "Niswatus",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 11,
+        "nama": "Sugeng",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 12,
+        "nama": "Sampuri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 2,
+        "no_urut": 13,
+        "nama": "Aminulloh",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 1,
+        "nama": "Ngatiyem",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 2,
+        "nama": "Sundari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 3,
+        "nama": "Andik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 4,
+        "nama": "Sukri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 5,
+        "nama": "Lasmari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 6,
+        "nama": "Miftakhul ulum",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 7,
+        "nama": "Temun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 8,
+        "nama": "Pendik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 9,
+        "nama": "Febri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 10,
+        "nama": "Khusnul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 11,
+        "nama": "TPQ Us-Ha",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 12,
+        "nama": "Siswandari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 13,
+        "nama": "Ja'far",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 14,
+        "nama": "Masjid B.M",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 15,
+        "nama": "Nur Hakim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 16,
+        "nama": "Rokhman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 3,
+        "no_urut": 17,
+        "nama": "Saipul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 1,
+        "nama": "Hadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 2,
+        "nama": "Reni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 3,
+        "nama": "Andi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 4,
+        "nama": "Pitono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 5,
+        "nama": "Edi H",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 6,
+        "nama": "Kariono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 7,
+        "nama": "Syukur",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 8,
+        "nama": "Juma'atin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 9,
+        "nama": "Kutut",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 10,
+        "nama": "Sunarko",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 11,
+        "nama": "Agus w",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 12,
+        "nama": "Arif(kandang)",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Peternakan/Penampungan"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 13,
+        "nama": "Ridwan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 4,
+        "no_urut": 14,
+        "nama": "Tupik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 1,
+        "nama": "Saru/Tantri",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 2,
+        "nama": "Wahyu Harianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 3,
+        "nama": "Sutomo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 4,
+        "nama": "Edi C",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 5,
+        "nama": "Iwan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 6,
+        "nama": "Supriono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 7,
+        "nama": "Suparman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 8,
+        "nama": "Wahyu/Misti",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 9,
+        "nama": "Nia yusanti",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 10,
+        "nama": "Jumani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 11,
+        "nama": "Wena/herni",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 12,
+        "nama": "Reni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 13,
+        "nama": "Wasto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 14,
+        "nama": "Basuki 1",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 5,
+        "no_urut": 15,
+        "nama": "May",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 1,
+        "nama": "Supat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 2,
+        "nama": "Cahyo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 3,
+        "nama": "Mukaromah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 4,
+        "nama": "M riyan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 5,
+        "nama": "Mat Rifai",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 6,
+        "nama": "Irawan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 7,
+        "nama": "Ramen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 8,
+        "nama": "Sadik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 9,
+        "nama": "Wasiyi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 10,
+        "nama": "Sabar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 11,
+        "nama": "Sudi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 12,
+        "nama": "Agus",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 13,
+        "nama": "Joyo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 14,
+        "nama": "Suratemi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 15,
+        "nama": "Sudar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 16,
+        "nama": "Meseri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 6,
+        "no_urut": 17,
+        "nama": "Sukan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 1,
+        "nama": "Nurali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 2,
+        "nama": "Tuminah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 3,
+        "nama": "Bainah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 4,
+        "nama": "Pi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 5,
+        "nama": "Muliono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 6,
+        "nama": "Sabar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 7,
+        "nama": "Senan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 8,
+        "nama": "Nuryakin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 9,
+        "nama": "Ngatmini",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 10,
+        "nama": "Perto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 11,
+        "nama": "Joyo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 12,
+        "nama": "Sri bawon",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 13,
+        "nama": "Sutilah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 14,
+        "nama": "Sa'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 15,
+        "nama": "Sogimin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 16,
+        "nama": "Sukran",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 17,
+        "nama": "Heri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 18,
+        "nama": "Eris",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 19,
+        "nama": "Suyanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 20,
+        "nama": "Ramon",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 21,
+        "nama": "Tu'ah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 22,
+        "nama": "Asri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 23,
+        "nama": "Agus(bogel)",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 7,
+        "no_urut": 24,
+        "nama": "Musholla R.J",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 1,
+        "nama": "Cipto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 2,
+        "nama": "Winarto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 3,
+        "nama": "Dakeri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 4,
+        "nama": "Jumanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 5,
+        "nama": "Sholeh",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 6,
+        "nama": "Yateno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 7,
+        "nama": "Arip",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 8,
+        "nama": "Fandik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 9,
+        "nama": "Subroto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 10,
+        "nama": "Usman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 11,
+        "nama": "Heru",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 12,
+        "nama": "Lis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 13,
+        "nama": "Riski",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 14,
+        "nama": "Warianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 15,
+        "nama": "Kamsin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 16,
+        "nama": "Ya Mukamat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 17,
+        "nama": "Suprianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 18,
+        "nama": "Andi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 19,
+        "nama": "Kusnadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 20,
+        "nama": "Mufidah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 21,
+        "nama": "Ra'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 22,
+        "nama": "Sulihadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 8,
+        "no_urut": 23,
+        "nama": "Arifin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 1,
+        "nama": "Sri werdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 2,
+        "nama": "Agus P",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 3,
+        "nama": "Aris sutomo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 4,
+        "nama": "Aman slamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 5,
+        "nama": "Wahyono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 6,
+        "nama": "Nyi Solati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 7,
+        "nama": "Anam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 8,
+        "nama": "Ida",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 9,
+        "nama": "Sulaiman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 10,
+        "nama": "Mustakim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 11,
+        "nama": "Madekur",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 12,
+        "nama": "Suprianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 13,
+        "nama": "Samsul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 14,
+        "nama": "Edik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 15,
+        "nama": "Kaban",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 16,
+        "nama": "Kirto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 17,
+        "nama": "Nizar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 18,
+        "nama": "SD",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 9,
+        "no_urut": 19,
+        "nama": "TK",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 1,
+        "nama": "Khoirudin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 2,
+        "nama": "Rusemi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 3,
+        "nama": "Paitun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 4,
+        "nama": "Irawan(usaha)",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 5,
+        "nama": "Suyono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 6,
+        "nama": "Kurdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 7,
+        "nama": "Mushola",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 8,
+        "nama": "Kasiatin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 9,
+        "nama": "Eko yulianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 10,
+        "nama": "Budiono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 11,
+        "nama": "Yusna",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 12,
+        "nama": "Sulis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 13,
+        "nama": "Warsi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 14,
+        "nama": "Ruspandi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 15,
+        "nama": "Wulan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 16,
+        "nama": "Mukiyar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 17,
+        "nama": "Mariadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 18,
+        "nama": "Purwanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 19,
+        "nama": "Siti",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 20,
+        "nama": "Ngatmari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 21,
+        "nama": "Lestari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 22,
+        "nama": "Kolik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 23,
+        "nama": "Cukup",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 24,
+        "nama": "Basuki",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 25,
+        "nama": "Koridah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 26,
+        "nama": "Musholla D.J",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 10,
+        "no_urut": 27,
+        "nama": "Kandang/Arif",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Peternakan/Penampungan"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 1,
+        "nama": "Ropek",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 2,
+        "nama": "Wahyu",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 3,
+        "nama": "Supri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 4,
+        "nama": "Kolip",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 5,
+        "nama": "Marmi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 6,
+        "nama": "Kasdi/Rumiati",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 7,
+        "nama": "Vera",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 8,
+        "nama": "Fitra",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 9,
+        "nama": "Setiowati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 10,
+        "nama": "Mai/siva",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 11,
+        "nama": "Tariyah/Purwito",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 12,
+        "nama": "Ropi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 13,
+        "nama": "Wasian",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 14,
+        "nama": "H.Iwan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 15,
+        "nama": "Warsit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 16,
+        "nama": "Ngatono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 17,
+        "nama": "Susiono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 18,
+        "nama": "Karnali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 19,
+        "nama": "Penampung",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Peternakan/Penampungan"
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 11,
+        "no_urut": 20,
+        "nama": "Naning",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 1,
+        "nama": "Suriono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 2,
+        "nama": "Raji",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 3,
+        "nama": "Sutik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 4,
+        "nama": "Soleh",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 5,
+        "nama": "Muntari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 6,
+        "nama": "Imam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 7,
+        "nama": "Sugeng",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 8,
+        "nama": "Rianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 9,
+        "nama": "Wandi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 10,
+        "nama": "Yadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 11,
+        "nama": "Suyan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Pateguhan",
+        "rt": 12,
+        "no_urut": 12,
+        "nama": "Musholla",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": "No",
+        "nama": "Nama",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 1,
+        "nama": "Kabul santoso",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 2,
+        "nama": "Sulani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 3,
+        "nama": "Eni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 4,
+        "nama": "Sodikin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 5,
+        "nama": "Runo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 6,
+        "nama": "Maskur",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 7,
+        "nama": "Lilik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 8,
+        "nama": "Koiron",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 9,
+        "nama": "Solikan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 10,
+        "nama": "Jumari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 11,
+        "nama": "Ngaderi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 12,
+        "nama": "Suwarsi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 13,
+        "nama": "Pikanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 14,
+        "nama": "Tinah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 15,
+        "nama": "Rukan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 16,
+        "nama": "Riono s",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 17,
+        "nama": "Suwanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 18,
+        "nama": "Suwarno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 19,
+        "nama": "Imam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 20,
+        "nama": "Subakgio",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 21,
+        "nama": "Yayuk",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 22,
+        "nama": "Intan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 23,
+        "nama": "Dori",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 24,
+        "nama": "Icang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 25,
+        "nama": "Edi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 13,
+        "no_urut": 26,
+        "nama": "Arif",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 1,
+        "nama": "Rofi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 2,
+        "nama": "Poniman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 3,
+        "nama": "Pitono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 4,
+        "nama": "Dolim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 5,
+        "nama": "Sugeng",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 6,
+        "nama": "Juli",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 7,
+        "nama": "Kariadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 8,
+        "nama": "Toni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 9,
+        "nama": "Silo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 10,
+        "nama": "Miskan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 11,
+        "nama": "Hari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 12,
+        "nama": "Bakri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 13,
+        "nama": "Riduan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 14,
+        "nama": "Bari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 15,
+        "nama": "Subekti",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 16,
+        "nama": "Bambang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 17,
+        "nama": "Sanip",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 18,
+        "nama": "Mustakim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 19,
+        "nama": "Kosnadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 20,
+        "nama": "Ngaderi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 21,
+        "nama": "Meskan/Suaten",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 22,
+        "nama": "Mokhsen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 23,
+        "nama": "Wati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 24,
+        "nama": "Rohman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 14,
+        "no_urut": 25,
+        "nama": "Khoirul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 1,
+        "nama": "Rina",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 2,
+        "nama": "Fitri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 3,
+        "nama": "Silvi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 4,
+        "nama": "Rohman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 5,
+        "nama": "Fauzan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 6,
+        "nama": "Anto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 7,
+        "nama": "Juwarno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 8,
+        "nama": "Sumali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 9,
+        "nama": "Andik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 10,
+        "nama": "Saten",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 11,
+        "nama": "Wasianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 12,
+        "nama": "Mukiyat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 13,
+        "nama": "Suroso",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 14,
+        "nama": "Sonto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 15,
+        "nama": "Rami",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 16,
+        "nama": "Paruwi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 17,
+        "nama": "Dinek",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 18,
+        "nama": "Bagus",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 19,
+        "nama": "Hudi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 15,
+        "no_urut": 20,
+        "nama": "Amat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 1,
+        "nama": "Jumar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 2,
+        "nama": "Rasiati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 3,
+        "nama": "Imron",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 4,
+        "nama": "Meseri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 5,
+        "nama": "Dedik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 6,
+        "nama": "Yuliani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 7,
+        "nama": "Dodik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 8,
+        "nama": "Suwondo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 9,
+        "nama": "Santoso",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 10,
+        "nama": "Janari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 16,
+        "no_urut": 11,
+        "nama": "Kolis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 1,
+        "nama": "Sopi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 2,
+        "nama": "Hartono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 3,
+        "nama": "Narto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 4,
+        "nama": "Amin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 5,
+        "nama": "Eksan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 6,
+        "nama": "Darmi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 7,
+        "nama": "Suhari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 8,
+        "nama": "Lastri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 9,
+        "nama": "Huda",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 10,
+        "nama": "Kusairi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 11,
+        "nama": "Dolah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 12,
+        "nama": "Putra",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 13,
+        "nama": "Rukiyah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 14,
+        "nama": "Wardi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 15,
+        "nama": "Mistun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 16,
+        "nama": "Eva",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 17,
+        "nama": "Budiono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 18,
+        "nama": "Sulis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 19,
+        "nama": "Rianah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 20,
+        "nama": "Jono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 21,
+        "nama": "Juwariyah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 22,
+        "nama": "Wariati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 23,
+        "nama": "Rianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 24,
+        "nama": "Ranu",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 25,
+        "nama": "Slamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 26,
+        "nama": "Budi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 27,
+        "nama": "Supres",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 28,
+        "nama": "Wati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 29,
+        "nama": "Kajin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 30,
+        "nama": "Deni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 31,
+        "nama": "Risang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 32,
+        "nama": "Umar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 17,
+        "no_urut": 33,
+        "nama": "Sanul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 1,
+        "nama": "Saiful",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 2,
+        "nama": "Yuli",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 3,
+        "nama": "Saat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 4,
+        "nama": "Fatimah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 5,
+        "nama": "Hasim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 6,
+        "nama": "Sori",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 7,
+        "nama": "Slamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 8,
+        "nama": "Gimi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 9,
+        "nama": "Yulianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 10,
+        "nama": "Agus",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 11,
+        "nama": "Riyamun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 12,
+        "nama": "Ruminah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 13,
+        "nama": "Supa'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 14,
+        "nama": "Adi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 15,
+        "nama": "Purwanti",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 16,
+        "nama": "Sugeng",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 17,
+        "nama": "Supaat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 18,
+        "no_urut": 18,
+        "nama": "Masjid",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Ibadah"
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 1,
+        "nama": "Takul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 2,
+        "nama": "Dolah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 3,
+        "nama": "Rokim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 4,
+        "nama": "Sarmini",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 5,
+        "nama": "Nursiadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 6,
+        "nama": "Darno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 7,
+        "nama": "Jasum",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 8,
+        "nama": "Surateman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 9,
+        "nama": "Samiaton",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Gentong",
+        "rt": 19,
+        "no_urut": 10,
+        "nama": "Ngatiyah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 1,
+        "nama": "Paidi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 2,
+        "nama": "Jalut",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 3,
+        "nama": "Suman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 4,
+        "nama": "Gani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 5,
+        "nama": "Atem",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 6,
+        "nama": "Siono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 7,
+        "nama": "Jumali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 8,
+        "nama": "Sumiati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 9,
+        "nama": "Rotul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 10,
+        "nama": "Mamat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 11,
+        "nama": "Sopyan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 12,
+        "nama": "Suhari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 13,
+        "nama": "Sunami",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 14,
+        "nama": "Muslimin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 15,
+        "nama": "Raman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 16,
+        "nama": "Tamun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 17,
+        "nama": "Mesdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 18,
+        "nama": "Seniman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 19,
+        "nama": "Rokim/kandang",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Peternakan/Penampungan"
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 20,
+        "nama": "Sumianah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 21,
+        "nama": "Subakri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 22,
+        "nama": "Sipul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 23,
+        "nama": "Subari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 24,
+        "nama": "Ramen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 25,
+        "nama": "Suriyat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 26,
+        "nama": "Deni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 27,
+        "nama": "Nurmudamah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 28,
+        "nama": "Tunalik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 20,
+        "no_urut": 29,
+        "nama": "Remi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 1,
+        "nama": "Seman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 2,
+        "nama": "Saipul/sulfa",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 3,
+        "nama": "Tikan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 4,
+        "nama": "Wadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 5,
+        "nama": "Mardis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 6,
+        "nama": "Juri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 7,
+        "nama": "Sudir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 8,
+        "nama": "Sukardi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 9,
+        "nama": "Supadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 10,
+        "nama": "Heri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 11,
+        "nama": "Sanoto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 12,
+        "nama": "Jaelani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 13,
+        "nama": "Samsul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 14,
+        "nama": "Misenu",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 15,
+        "nama": "Nanik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 16,
+        "nama": "Penampung",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Peternakan/Penampungan"
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 17,
+        "nama": "Kabit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 18,
+        "nama": "Iwan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 19,
+        "nama": "Jani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 20,
+        "nama": "Basori",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 21,
+        "nama": "Patriyah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 22,
+        "nama": "Suud",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 23,
+        "nama": "Mat Didik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 24,
+        "nama": "Sutris",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 21,
+        "no_urut": 25,
+        "nama": "Hartono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 1,
+        "nama": "Darmaji/Jumad",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 2,
+        "nama": "Andik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 3,
+        "nama": "Satimen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 4,
+        "nama": "Rudi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 5,
+        "nama": "Dadu",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 6,
+        "nama": "P. Kayat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 7,
+        "nama": "Kosenan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 8,
+        "nama": "P. Tukijo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 9,
+        "nama": "Sukarles",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 10,
+        "nama": "Suadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 11,
+        "nama": "Agus",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 12,
+        "nama": "Sawal",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 13,
+        "nama": "Lasemi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 14,
+        "nama": "P. Koseno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 15,
+        "nama": "Tumijo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 16,
+        "nama": "Djaman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 17,
+        "nama": "Ngateri/Ketang",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 18,
+        "nama": "Seneri/Oyek",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 19,
+        "nama": "Pairi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 20,
+        "nama": "P. Saram",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 21,
+        "nama": "Pariono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 22,
+        "nama": "Imam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 23,
+        "nama": "P. Sukardi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 24,
+        "nama": "Sulianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 25,
+        "nama": "Rokim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 26,
+        "nama": "Sadik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 27,
+        "nama": "Imam Jajuli",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 28,
+        "nama": "Jumali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 29,
+        "nama": "Sadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 30,
+        "nama": "Arif Suhada",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 31,
+        "nama": "Mariyam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 32,
+        "nama": "P. Wasis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 33,
+        "nama": "Soesjianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 22,
+        "no_urut": 34,
+        "nama": "Mustikah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 1,
+        "nama": "Karnoto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 2,
+        "nama": "Sukardi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 3,
+        "nama": "Suliadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 4,
+        "nama": "Asan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 5,
+        "nama": "Harianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 6,
+        "nama": "Jari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 7,
+        "nama": "Misdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 8,
+        "nama": "Sunarto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 9,
+        "nama": "Sadeli",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 10,
+        "nama": "Wasit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 11,
+        "nama": "Mawan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 12,
+        "nama": "Santo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 13,
+        "nama": "Koirul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 14,
+        "nama": "Pipit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 15,
+        "nama": "Sukari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 16,
+        "nama": "Gianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 17,
+        "nama": "Sukur",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 23,
+        "no_urut": 18,
+        "nama": "Surianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 1,
+        "nama": "Miskan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 2,
+        "nama": "Rianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 3,
+        "nama": "Soleh",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 4,
+        "nama": "Yasin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 5,
+        "nama": "Muk",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 6,
+        "nama": "Nur",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 7,
+        "nama": "Santoso",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 8,
+        "nama": "Buang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 9,
+        "nama": "Yono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 10,
+        "nama": "Poniman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 11,
+        "nama": "Surahman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 12,
+        "nama": "Ginten",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 13,
+        "nama": "Ruki",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 14,
+        "nama": "Yanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 15,
+        "nama": "Veri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 16,
+        "nama": "Wari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 17,
+        "nama": "Ropi'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 18,
+        "nama": "Joni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 19,
+        "nama": "Jumani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 20,
+        "nama": "Budi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 21,
+        "nama": "Wagir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 24,
+        "no_urut": 22,
+        "nama": "Dasim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 1,
+        "nama": "Mamat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 2,
+        "nama": "Senan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 3,
+        "nama": "Senan kokeh",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 4,
+        "nama": "Ba'i",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 5,
+        "nama": "Kosem",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 6,
+        "nama": "Teguh",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 7,
+        "nama": "Sumali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 8,
+        "nama": "Seman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 9,
+        "nama": "Dasim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 10,
+        "nama": "Nardi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 11,
+        "nama": "Galih",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 12,
+        "nama": "Juari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 13,
+        "nama": "Sukah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 14,
+        "nama": "Rokim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 15,
+        "nama": "Siono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 16,
+        "nama": "Kromo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 17,
+        "nama": "Slamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 18,
+        "nama": "Tuwi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 19,
+        "nama": "Sagi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 20,
+        "nama": "Minto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 21,
+        "nama": "Manan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 25,
+        "no_urut": 22,
+        "nama": "Rosemen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 1,
+        "nama": "Sumani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 2,
+        "nama": "Tumi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 3,
+        "nama": "Datul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 4,
+        "nama": "Kolis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 5,
+        "nama": "Ta'in",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 6,
+        "nama": "Suyat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 7,
+        "nama": "Sian",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 8,
+        "nama": "Imam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 9,
+        "nama": "Jenuri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 10,
+        "nama": "Ketang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 11,
+        "nama": "Mukari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 12,
+        "nama": "Miskun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 13,
+        "nama": "Wajib",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 14,
+        "nama": "Priati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 15,
+        "nama": "Misdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 16,
+        "nama": "Warno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 17,
+        "nama": "Sukir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 18,
+        "nama": "Jumari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 19,
+        "nama": "Kusairi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 20,
+        "nama": "Rohman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 21,
+        "nama": "Dirin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 26,
+        "no_urut": 22,
+        "nama": "Samat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 1,
+        "nama": "Rojikan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 2,
+        "nama": "Suhar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 3,
+        "nama": "Tolichin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 4,
+        "nama": "Rais",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 5,
+        "nama": "Slamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 6,
+        "nama": "Sarin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 7,
+        "nama": "Siatin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 8,
+        "nama": "Samain",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 9,
+        "nama": "Sugianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 10,
+        "nama": "Padilah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 11,
+        "nama": "Riduwan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 12,
+        "nama": "Miseri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 13,
+        "nama": "Heri kasianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 27,
+        "no_urut": 14,
+        "nama": "Muhis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 1,
+        "nama": "Pardi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 2,
+        "nama": "Wasri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 3,
+        "nama": "Suliadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 4,
+        "nama": "Mukhamat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 5,
+        "nama": "Herman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 6,
+        "nama": "Riono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 7,
+        "nama": "Siswanto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 8,
+        "nama": "Suwarno",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 9,
+        "nama": "Bani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 10,
+        "nama": "Takim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 11,
+        "nama": "Sukarto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 12,
+        "nama": "Rohmadi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 13,
+        "nama": "Naib",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 14,
+        "nama": "Wati",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 15,
+        "nama": "Nuratim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 16,
+        "nama": "Kumaiyah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 17,
+        "nama": "Kustiyo",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 18,
+        "nama": "Darsono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 19,
+        "nama": "Buono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 20,
+        "nama": "Majid",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 28,
+        "no_urut": 21,
+        "nama": "Yanwar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 1,
+        "nama": "Sugeng",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 2,
+        "nama": "Fatimah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 3,
+        "nama": "Juwita",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 4,
+        "nama": "Heri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 5,
+        "nama": "Siono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 6,
+        "nama": "Ponari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 7,
+        "nama": "Jamil",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 8,
+        "nama": "Sujono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 9,
+        "nama": "Muji",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 10,
+        "nama": "Asep",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 11,
+        "nama": "Juni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 12,
+        "nama": "Musripah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 13,
+        "nama": "Zainal",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 14,
+        "nama": "Jumari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 15,
+        "nama": "Rudik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 16,
+        "nama": "Saudi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 17,
+        "nama": "Ngatinah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 18,
+        "nama": "Misdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 19,
+        "nama": "Siamen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 29,
+        "no_urut": 20,
+        "nama": "Mad santoso",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 1,
+        "nama": "Kasirin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 2,
+        "nama": "Sutek",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 3,
+        "nama": "Basori",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 4,
+        "nama": "Huda",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 5,
+        "nama": "Suripto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 6,
+        "nama": "Rubai",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 7,
+        "nama": "Janam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 8,
+        "nama": "Kaseli",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 9,
+        "nama": "Sujono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 10,
+        "nama": "Buari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 11,
+        "nama": "Samsul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 12,
+        "nama": "Arif",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 13,
+        "nama": "Iklas",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 14,
+        "nama": "Ika",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 15,
+        "nama": "Jari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 16,
+        "nama": "Sanam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 17,
+        "nama": "Jauri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 18,
+        "nama": "Mesdi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 19,
+        "nama": "Suoto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 20,
+        "nama": "Supri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 21,
+        "nama": "Edi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 22,
+        "nama": "Sianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 23,
+        "nama": "Huri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 24,
+        "nama": "Noridin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 25,
+        "nama": "Ripin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 26,
+        "nama": "Yuk",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 27,
+        "nama": "Munir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 28,
+        "nama": "Kandar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 30,
+        "no_urut": 29,
+        "nama": "Junarto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 1,
+        "nama": "Wari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 2,
+        "nama": "Munir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 3,
+        "nama": "Kusomah",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 4,
+        "nama": "Kosi'in",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 5,
+        "nama": "Jasan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 6,
+        "nama": "Sandik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 7,
+        "nama": "Sanul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 8,
+        "nama": "Sutaji",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 9,
+        "nama": "Suliono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 10,
+        "nama": "Riduwan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 11,
+        "nama": "Rokim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 12,
+        "nama": "Meseri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 13,
+        "nama": "Kusen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 14,
+        "nama": "Rasimun",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 15,
+        "nama": "Rail",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 16,
+        "nama": "Janop",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 17,
+        "nama": "Misenan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 18,
+        "nama": "Sutres",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 19,
+        "nama": "Mat Wahono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 20,
+        "nama": "Ajis",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 21,
+        "nama": "Suyat",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 22,
+        "nama": "Selamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 23,
+        "nama": "Ari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 24,
+        "nama": "Mariyam",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 25,
+        "nama": "Selamet",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 26,
+        "nama": "Cari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 27,
+        "nama": "Reman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 31,
+        "no_urut": 28,
+        "nama": "Wagyono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 1,
+        "nama": "Matohir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 2,
+        "nama": "Khamim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 3,
+        "nama": "Asir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 4,
+        "nama": "Ripin/Sakinah",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 5,
+        "nama": "Samsul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 6,
+        "nama": "Buang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 7,
+        "nama": "Sari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 8,
+        "nama": "Budi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 9,
+        "nama": "Luseman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 10,
+        "nama": "Taukit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 11,
+        "nama": "Sampe",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 12,
+        "nama": "Ngatemin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 13,
+        "nama": "Seman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 14,
+        "nama": "Nanik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 15,
+        "nama": "Jupri",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 16,
+        "nama": "Kardi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 17,
+        "nama": "Suroso",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 18,
+        "nama": "Muliono",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 19,
+        "nama": "Kholik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 20,
+        "nama": "Rawi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 21,
+        "nama": "Rioto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 22,
+        "nama": "Jamin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 32,
+        "no_urut": 23,
+        "nama": "Suwoto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 1,
+        "nama": "Samsul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 2,
+        "nama": "Giran",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 3,
+        "nama": "Sugeng",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 4,
+        "nama": "Kamit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 5,
+        "nama": "Marji",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 6,
+        "nama": "Agus",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 7,
+        "nama": "Sarim",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 8,
+        "nama": "Wagir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 9,
+        "nama": "Anang",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 10,
+        "nama": "Wari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 11,
+        "nama": "Edi",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 12,
+        "nama": "Saroni",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 13,
+        "nama": "Kawit",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 14,
+        "nama": "Samsul/Nanik",
+        "catatan": "nama_ganda_atau_keterangan",
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 33,
+        "no_urut": 15,
+        "nama": "Indra",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 1,
+        "nama": "Padil",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 2,
+        "nama": "Ali",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 3,
+        "nama": "Mustamin",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 4,
+        "nama": "Toha",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 5,
+        "nama": "Misenan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 6,
+        "nama": "Buari",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 7,
+        "nama": "Kaseman",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 8,
+        "nama": "Tani",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 9,
+        "nama": "Andik",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 10,
+        "nama": "Mustofa",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 11,
+        "nama": "Sudar",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 12,
+        "nama": "Tohir",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 13,
+        "nama": "Kasbul",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 14,
+        "nama": "Toyib",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 15,
+        "nama": "Senan",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 16,
+        "nama": "Mukti",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 17,
+        "nama": "Sugianto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 18,
+        "nama": "Jumain",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 19,
+        "nama": "Kosen",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 20,
+        "nama": "Sekolah SD",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Fasilitas Pendidikan"
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 21,
+        "nama": "KUD",
+        "catatan": "non_rumah_tangga",
+        "sub_kategori": "Koperasi/Usaha"
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 22,
+        "nama": "Cipto",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 23,
+        "nama": "Koiron",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 24,
+        "nama": "Dhori",
+        "catatan": null,
+        "sub_kategori": null
+    },
+    {
+        "dusun": "Bendrong",
+        "rt": 34,
+        "no_urut": 25,
+        "nama": "Suroso",
+        "catatan": null,
+        "sub_kategori": null
+    }
+]
